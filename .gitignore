@@ -1,0 +1,22 @@
+# dependencies / build
+node_modules/
+dist/
+.vite/
+
+# tests
+playwright-report/
+test-results/
+coverage/
+
+# secrets — never commit
+.env
+.env.*
+!.env.example
+
+# editor / os
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.log
