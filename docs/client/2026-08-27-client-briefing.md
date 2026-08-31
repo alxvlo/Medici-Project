@@ -6,6 +6,24 @@
 
 ---
 
+> ## ✅ Answered — 1 September 2026
+>
+> **This document has been answered and parts of it are now out of date. Keep it as the record of what was asked; do not build from it.**
+>
+> Your replies changed the game in ways this briefing does not describe. **Sections 3, 5, and several answers in Section 9 are superseded** — the level no longer has eight steps, timers are no longer optional, there are no hints, and nothing can be retried. What is being built now is described in the current design document, and the two asset and content sheets you have been sent match it.
+>
+> What changed, in short:
+>
+> - **"Assess the patient" is gone.** A case is now: patient arrives → doctor's order → position → exposure settings → collimation → take the exposure → review.
+> - **Nothing is retried.** One attempt at the position, one at the exposure settings. Wrong positioning is explained and the correct answer shown; wrong settings get a red flash and nothing else.
+> - **The X-ray is hidden until the exposure is taken**, and depends only on the kVp and mAs. The exposure step itself is now just press-and-hold — there is no longer a timing challenge.
+> - **Timers are always on** and **there are no hints anywhere**, so those two settings are gone.
+> - **The case ends with a review** — every decision, what was correct, and why — instead of confetti.
+>
+> Section 10 below is the questionnaire you already returned. It is left in place unchanged so we both have a record of what was asked and answered.
+
+---
+
 ## 1. Why you're reading this
 
 Thank you for the design document and the reference images. I've gone through everything — the flowchart, the written game design, the handwritten notes, and the inspiration screenshots — and turned it into a concrete build plan.

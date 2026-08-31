@@ -1,6 +1,6 @@
 # Radtech Simulator — Level Content Sheet
 
-**Date:** 27 August 2026
+**Date:** 27 August 2026 · **Updated:** 1 September 2026 for your design changes
 **For:** [Client name]
 **From:** [Your name]
 
@@ -12,11 +12,23 @@ There is one sheet per level below. Every answer you write here goes straight in
 
 **Everything already filled in is a draft I wrote so I could build and test.** I am not a radiographer. Please treat every value and sentence as a suggestion to correct, not a fact to approve. Cross out, overwrite, or rewrite freely. If a whole case is wrong for what you want to teach, replace the whole level.
 
-A few notes before you start:
+### Where your words end up
 
-- **Positioning options.** Each level shows the student three positions: one correct and two wrong. For each wrong one, I need a single sentence a student would learn from ("AP supine magnifies the heart…"). The game shows that sentence when they pick it.
+Your changes to the design moved most of the teaching to the end of a case, so it is worth knowing which of your sentences the student reads *when*.
+
+The student gets **one attempt** at the position and one at the exposure settings. Pick the wrong position and the game says why, shows the correct one, and moves on. Set the kVp or mAs wrong and the console just flashes red — it tells them nothing. They collimate, they take the exposure, and the film they produced is the first real answer they get.
+
+Then comes the **review**, and that is where nearly everything you write below is read out: the correct kVp and mAs, why their value was wrong, the note about balancing the two, and what the underexposed or overexposed film failed to show. Only the positioning sentences appear during the case itself.
+
+So write these as explanations to a student who has already finished and is finding out how they did — not as hints. There are no hints in the game any more, and no timer that can be switched off.
+
+### A few notes before you start
+
+- **Positioning options.** Each level shows the student three positions: one correct and two wrong. For each wrong one, I need a single sentence a student would learn from ("AP supine magnifies the heart…"). This is the one sentence shown during the case, right after they choose.
 - **kVp and mAs.** Give me the value you'd expect a student to set, plus how far off they can be and still be "correct". For example: *110 kVp, anywhere from 100 to 120 is fine*. Also tell me the lowest and highest values the dial should even allow.
+- **The three films.** Which film a student gets depends *only* on their kVp and mAs — too low anywhere gives the underexposed one, too high gives the overexposed one. Their position and collimation never change it. That is why three films per level is the whole set.
 - **Collimation.** Give the field size in centimetres or inches, whatever you normally use. I convert it to the on-screen target.
+- **I removed the per-level hint.** The old sheet asked you for a hint shown when the timer ran out. There are no hints now, so those lines are gone; nothing is lost from what you had already written.
 - **One thing I noticed in your notes:** the handwritten page says "kVp setting is 1 to 20" and "do not reach above 10 kVp". My references put a real chest exposure around 100–125 kVp. I've used real-world numbers below; if you'd rather use simplified game-only numbers, say so in the box at the end and I'll switch all five levels.
 
 ---
@@ -50,8 +62,6 @@ A few notes before you start:
 | ❌ Wrong 1 | AP supine | AP supine magnifies the heart, blurs the lung bases, and can hide a small pneumothorax. |
 | ❌ Wrong 2 | Lateral chest only | A lateral alone superimposes both sides and cannot show the left rib series clearly. |
 
-**Hint shown if the student runs out of time:** "Chest images are taken erect and PA to keep the heart shadow small and show air-fluid levels."
-
 ### Exposure settings
 
 | Field | Draft (please correct) |
@@ -62,9 +72,9 @@ A few notes before you start:
 | mAs — expected value | 3 |
 | mAs — acceptable range | 2 to 4 |
 | mAs — lowest / highest the dial allows | 0.5 / 20 |
-| Side note shown to the student | "The chest has high natural contrast. Favour a high kVp and a low mAs so the ribs and lungs are both visible." |
-| If kVp is wrong, the student reads | "Too low a kVp will not penetrate the mediastinum; too high flattens the contrast." |
-| If mAs is wrong, the student reads | "Too much mAs overexposes the lungs and adds dose; too little leaves the image noisy." |
+| Note shown in the review | "The chest has high natural contrast. Favour a high kVp and a low mAs so the ribs and lungs are both visible." |
+| If kVp is wrong, the review says | "Too low a kVp will not penetrate the mediastinum; too high flattens the contrast." |
+| If mAs is wrong, the review says | "Too much mAs overexposes the lungs and adds dose; too little leaves the image noisy." |
 
 ### Collimation
 
@@ -73,12 +83,12 @@ A few notes before you start:
 | Field size | 35 × 43 cm, portrait |
 | What the field should include | Apices to just below the costophrenic angles |
 
-### Exposure result
+### The three films
 
 | Field | Draft (please correct) |
 |---|---|
-| Underexposed — student reads | "Not enough exposure. The image is noisy and the rib fracture is lost." |
-| Overexposed — student reads | "Overexposed. The lungs are burnt out and the fracture line disappears." |
+| Underexposed film — the review says | "Not enough exposure. The image is noisy and the rib fracture is lost." |
+| Overexposed film — the review says | "Overexposed. The lungs are burnt out and the fracture line disappears." |
 | What the correct image shows | Clear left rib fracture at rib 6, no pneumothorax |
 
 > Questions about this level for me? Write them here:
@@ -115,8 +125,6 @@ A few notes before you start:
 | ❌ Wrong 1 | AP wrist (palm up) | AP rotates the forearm, so the radius and ulna cross over and the joint spaces close up. |
 | ❌ Wrong 2 | Lateral wrist only | A lateral alone superimposes the carpals and cannot show sideways displacement. |
 
-**Hint:** "Wrist images start with a PA view, palm down, to open the carpal joint spaces."
-
 ### Exposure settings
 
 | Field | Draft (please correct) |
@@ -127,9 +135,9 @@ A few notes before you start:
 | mAs — expected value | 2 |
 | mAs — acceptable range | 1.5 to 2.5 |
 | mAs — lowest / highest the dial allows | 0.5 / 20 |
-| Side note | "Small bones in a child need low kVp for contrast and very little mAs. Keep the dose down." |
-| If kVp is wrong | "A high kVp washes out the fine bone detail of a child's wrist." |
-| If mAs is wrong | "Extremities need very little mAs; more only adds dose without adding detail." |
+| Note shown in the review | "Small bones in a child need low kVp for contrast and very little mAs. Keep the dose down." |
+| If kVp is wrong, the review says | "A high kVp washes out the fine bone detail of a child's wrist." |
+| If mAs is wrong, the review says | "Extremities need very little mAs; more only adds dose without adding detail." |
 
 ### Collimation
 
@@ -138,12 +146,12 @@ A few notes before you start:
 | Field size | 18 × 24 cm, portrait |
 | What the field should include | Mid-forearm to the metacarpal heads |
 
-### Exposure result
+### The three films
 
 | Field | Draft (please correct) |
 |---|---|
-| Underexposed | "Too little exposure. The bone edges are grainy and the fracture is unclear." |
-| Overexposed | "Overexposed. The thin bones of the wrist are burnt out." |
+| Underexposed film — the review says | "Too little exposure. The bone edges are grainy and the fracture is unclear." |
+| Overexposed film — the review says | "Overexposed. The thin bones of the wrist are burnt out." |
 | Correct image shows | Distal radius fracture with slight dorsal angulation |
 
 > Questions about this level:
@@ -180,8 +188,6 @@ A few notes before you start:
 | ❌ Wrong 1 | AP with the foot rotated outward | External rotation overlaps the fibula on the tibia and closes the mortise joint. |
 | ❌ Wrong 2 | Lateral ankle only | A lateral cannot open the mortise or show a lateral malleolus fracture clearly. |
 
-**Hint:** "The mortise view needs slight internal rotation so the joint space opens evenly on both sides."
-
 ### Exposure settings
 
 | Field | Draft (please correct) |
@@ -192,9 +198,9 @@ A few notes before you start:
 | mAs — expected value | 4 |
 | mAs — acceptable range | 3 to 5 |
 | mAs — lowest / highest the dial allows | 0.5 / 20 |
-| Side note | "The ankle is denser than the wrist. Moderate kVp with a little more mAs keeps both bone and soft tissue visible." |
-| If kVp is wrong | "Too low a kVp will not penetrate the talus; too high flattens the bone detail." |
-| If mAs is wrong | "Not enough mAs makes the image grainy; too much burns out the soft tissue swelling." |
+| Note shown in the review | "The ankle is denser than the wrist. Moderate kVp with a little more mAs keeps both bone and soft tissue visible." |
+| If kVp is wrong, the review says | "Too low a kVp will not penetrate the talus; too high flattens the bone detail." |
+| If mAs is wrong, the review says | "Not enough mAs makes the image grainy; too much burns out the soft tissue swelling." |
 
 ### Collimation
 
@@ -203,12 +209,12 @@ A few notes before you start:
 | Field size | 18 × 24 cm, portrait |
 | What the field should include | Distal third of the lower leg to the base of the metatarsals |
 
-### Exposure result
+### The three films
 
 | Field | Draft (please correct) |
 |---|---|
-| Underexposed | "Too little exposure. The fracture through the lateral malleolus is hidden in noise." |
-| Overexposed | "Overexposed. Soft tissue is gone and the fine fracture line is lost." |
+| Underexposed film — the review says | "Too little exposure. The fracture through the lateral malleolus is hidden in noise." |
+| Overexposed film — the review says | "Overexposed. Soft tissue is gone and the fine fracture line is lost." |
 | Correct image shows | Transverse fracture of the lateral malleolus, mortise intact |
 
 > Questions about this level:
@@ -245,8 +251,6 @@ A few notes before you start:
 | ❌ Wrong 1 | Lateral abdomen | A lateral superimposes the bowel loops and cannot show the gas pattern clearly. |
 | ❌ Wrong 2 | PA erect chest | That is the wrong region — the chest view cuts off below the diaphragm. |
 
-**Hint:** "An abdomen starts with an AP supine view, taken on expiration so the diaphragm sits high."
-
 ### Exposure settings
 
 | Field | Draft (please correct) |
@@ -257,9 +261,9 @@ A few notes before you start:
 | mAs — expected value | 30 |
 | mAs — acceptable range | 25 to 35 |
 | mAs — lowest / highest the dial allows | 0.5 / 60 |
-| Side note | "The abdomen is thick and low-contrast. Moderate kVp with a much higher mAs is needed to see soft tissue and gas." |
-| If kVp is wrong | "Too high a kVp flattens the soft-tissue contrast the abdomen depends on." |
-| If mAs is wrong | "The abdomen needs far more mAs than an extremity; too little leaves the image dark and grainy." |
+| Note shown in the review | "The abdomen is thick and low-contrast. Moderate kVp with a much higher mAs is needed to see soft tissue and gas." |
+| If kVp is wrong, the review says | "Too high a kVp flattens the soft-tissue contrast the abdomen depends on." |
+| If mAs is wrong, the review says | "The abdomen needs far more mAs than an extremity; too little leaves the image dark and grainy." |
 
 ### Collimation
 
@@ -268,12 +272,12 @@ A few notes before you start:
 | Field size | 35 × 43 cm, portrait |
 | What the field should include | Top of the diaphragm to the symphysis pubis |
 
-### Exposure result
+### The three films
 
 | Field | Draft (please correct) |
 |---|---|
-| Underexposed | "Too little exposure. The bowel gas pattern cannot be told apart from the soft tissue." |
-| Overexposed | "Overexposed. The gas-filled loops and the soft tissue merge into grey." |
+| Underexposed film — the review says | "Too little exposure. The bowel gas pattern cannot be told apart from the soft tissue." |
+| Overexposed film — the review says | "Overexposed. The gas-filled loops and the soft tissue merge into grey." |
 | Correct image shows | Dilated small-bowel loops with a stacked, stepladder pattern |
 
 > Questions about this level:
@@ -310,8 +314,6 @@ A few notes before you start:
 | ❌ Wrong 1 | AP skull | In a straight AP the petrous ridges sit over the orbits and hide the facial bones. |
 | ❌ Wrong 2 | Lateral skull | A lateral superimposes both cheekbones, so the injured side cannot be told from the healthy one. |
 
-**Hint:** "Facial bones are shown with the chin raised so the petrous ridges drop below the maxillary sinuses."
-
 ### Exposure settings
 
 | Field | Draft (please correct) |
@@ -322,9 +324,9 @@ A few notes before you start:
 | mAs — expected value | 25 |
 | mAs — acceptable range | 20 to 30 |
 | mAs — lowest / highest the dial allows | 0.5 / 60 |
-| Side note | "The skull is dense. Moderate-high kVp and a solid mAs are needed to get through the facial bones." |
-| If kVp is wrong | "Too low a kVp will not penetrate the dense facial bones." |
-| If mAs is wrong | "Too little mAs leaves the sinuses and arches grainy; too much adds dose without detail." |
+| Note shown in the review | "The skull is dense. Moderate-high kVp and a solid mAs are needed to get through the facial bones." |
+| If kVp is wrong, the review says | "Too low a kVp will not penetrate the dense facial bones." |
+| If mAs is wrong, the review says | "Too little mAs leaves the sinuses and arches grainy; too much adds dose without detail." |
 
 ### Collimation
 
@@ -333,12 +335,12 @@ A few notes before you start:
 | Field size | 24 × 30 cm, portrait |
 | What the field should include | Top of the orbits to below the chin, both zygomatic arches |
 
-### Exposure result
+### The three films
 
 | Field | Draft (please correct) |
 |---|---|
-| Underexposed | "Too little exposure. The arch is buried in the dense bone of the skull." |
-| Overexposed | "Overexposed. The thin zygomatic arch is burnt through and the fracture disappears." |
+| Underexposed film — the review says | "Too little exposure. The arch is buried in the dense bone of the skull." |
+| Overexposed film — the review says | "Overexposed. The thin zygomatic arch is burnt through and the fracture disappears." |
 | Correct image shows | Depressed fracture of the right zygomatic arch, clear maxillary sinuses |
 
 > Questions about this level:
