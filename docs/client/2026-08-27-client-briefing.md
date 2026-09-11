@@ -10,6 +10,8 @@
 >
 > **This document has been answered and parts of it are now out of date. Keep it as the record of what was asked; do not build from it.**
 >
+> **Also superseded as of 10 September 2026:** your case database set the game at **twenty levels**, not five, so Section 4 and every mention of five levels below is out of date. The twenty cases are your own; the current list is in the level content sheet.
+>
 > Your replies changed the game in ways this briefing does not describe. **Sections 3, 5, and several answers in Section 9 are superseded** — the level no longer has eight steps, timers are no longer optional, there are no hints, and nothing can be retried. What is being built now is described in the current design document, and the two asset and content sheets you have been sent match it.
 >
 > What changed, in short:

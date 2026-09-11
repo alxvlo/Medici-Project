@@ -4,15 +4,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Medici — a browser game where the player is a radiologic technologist. Five levels, one patient/injury each, through the real X-ray workflow (order → assess → position → kVp/mAs → collimate → exposure QTE). Client project: the client owns the medical content and the art.
+Medici — a browser game where the player is a radiologic technologist. Twenty levels, one patient/injury each, through the real X-ray workflow (order → assess → position → kVp/mAs → collimate → exposure QTE). Client project: the client owns the medical content and the art.
 
 **Source of truth:** `docs/superpowers/specs/2026-08-27-medici-radtech-game-design.md`. Where the client's original brief (`docs/brief/`) disagrees with the spec, the spec wins. Do not re-litigate decisions recorded in spec §2.
 
+**Medical source of truth:** the client's case database, `docs/brief/case-database-2026-09.pdf` (gitignored, kept locally), transcribed to `case-database-2026-09.md` beside it. The PDF wins on any disagreement — fix the transcription, never the PDF. All twenty levels come from it. Do not invent medical facts; mark gaps and ask.
+
 ## Current phase
 
-Design complete and revised, no app code yet. The client answered the briefing on 2026-09-01 and the answers are folded into the spec (see its §13 revision log). Next steps in order: write the implementation plan (`docs/superpowers/plans/`) with the `superpowers:writing-plans` skill → execute task by task. The first plan task scaffolds the app; update this file's Commands section then.
+Design complete and revised, no app code yet. Next steps in order: write the implementation plan (`docs/superpowers/plans/`) with the `superpowers:writing-plans` skill → execute task by task. The first plan task scaffolds the app; update this file's Commands section then.
 
-The 2026-09-01 revision matters more than a normal spec tweak — it changed the shape of the game, not just its values. The loop lost a stage and all its retries, the radiograph is now a sealed consequence of kVp/mAs revealed only at the exposure, and the teaching moved to an end-of-case debrief. Read spec §4.3–§4.5 before touching level flow.
+The **2026-09-10 revision is the largest since the spec was written**: the client's case database took the game from five levels to twenty. Read spec §5 for the level table and §13 for what moved. Crucially it changed the *size* of the game, not the shape of its loop — §4.3, §4.4, §4.5, and §6 are untouched. It also extended the §7.1 vocabularies, gave film ids a pathology segment (four levels are PA chest, so region+projection stopped being unique), and took the manifest from 70 files to about 173.
+
+The 2026-09-01 revision changed the shape of the game rather than its values. The loop lost a stage and all its retries, the radiograph is now a sealed consequence of kVp/mAs revealed only at the exposure, and the teaching moved to an end-of-case debrief. Read spec §4.3–§4.5 before touching level flow.
+
+`docs/art-direction.md` governs the look of anything generated.
 
 ## Stack (locked)
 
@@ -41,9 +47,10 @@ Spec → plan → implement, using the superpowers skills (`brainstorming`, `wri
 
 ## Content and asset rules
 
-- Medical values in level JSON are AI drafts until the client's `docs/client/level-content-sheet.md` is transcribed; keep `"draft": true` until then. Do not invent new medical facts — mark gaps and ask.
-- Asset ids must match the filenames in `docs/client/assets/*.md` (eight per-group checklists plus `00-index.md`). Those files are the naming contract with the client; `asset-checklist.md` was split into them on 2026-09-01 and no longer exists.
-- AI-generated art goes only in `public/assets/generated/` and never moves out; client art goes in the group folders.
+- Medical values in level JSON come from the case database (see above) and stay `"draft": true` until the six gaps in spec §12 are filled by `docs/client/level-content-sheet.md`. The sheet no longer carries draft cases; it collects only what the database lacks. Do not invent new medical facts — mark gaps and ask.
+- Asset ids follow the naming grammar in spec §7.1 — `group-subject-detail` over closed vocabularies — and must match the filenames in `docs/client/assets/*.md` (eight per-group checklists plus `00-index.md`). Those files are the naming contract with the client. Patients are keyed `patient-<age>-<sex>-<habitus>`; films `xray-<region>-<projection>-<pathology>-<under|optimal|over>` — films alone carry the pathology segment, because four levels are PA chest and region+projection is no longer unique. Never invent a vocabulary word; extend §7.1 first.
+- AI-generated art goes only in `public/assets/generated/` and never moves out; client art goes in the group folders. **The sixty X-ray films are never generated** — a fabricated radiograph teaches a fabricated finding. A labelled grey box is the correct failure mode there.
+- `docs/art-direction.md` is the look: palette, lineart, proportions, and the exact three-part prompt recipe for generating an asset. Read it before generating anything; do not embellish a prompt beyond what it specifies.
 - Documents in `docs/client/` are for a non-technical client: no jargon, no stack names, formatted for pasting into Google Docs (no bare `____` lines — Markdown renders them as rules).
 
 ## Documentation rules

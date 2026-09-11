@@ -2,6 +2,34 @@
 
 Dated project log, newest first. Code changes follow Conventional Commits in git; this file records decisions, deliverables, and milestones.
 
+## 2026-09-10
+
+The client's case database arrived and the game grows from five levels to twenty. Spec revised in place with a revision log entry at §13; the client documents are reissued to match.
+
+- **Twenty levels, not five.** The client supplied a twenty-case database (`docs/brief/case-database-2026-09.pdf`, their "LIST OF CASES") and confirmed every case is a level. They group into six sections — chest, upper extremity, lower extremity, abdomen, skull, and a six-case refresher set. Spec §1, §2, §4.2, §5, §7.1, §7.2, §11, and §12 revised accordingly; the level cap moved from five to twenty.
+- **The database is transcribed** to `docs/brief/case-database-2026-09.md`, because the PDF is a wide table whose columns scramble on text extraction and cannot safely be quoted from. The PDF stays the source of truth. 180 field values across all twenty cases were checked against the PDF's own text inside each case's own block; all matched.
+- **The database carries more than expected.** All twenty cases have correct kVp, mAs, and a collimation instruction, plus full patient identity, chief complaint, history, provisional diagnosis, doctor's order, and requested projection. Eleven carry a working reference link for the correct film.
+- **Still owed by the client:** the two wrong positioning options per level with their one-sentence explanations, tolerance bands and dial limits for kVp/mAs, collimation as a measurable field size, the debrief text for the under- and overexposed films, the patient's opening line, and the visible-structures line for eighteen of twenty cases.
+- **The client will supply the overexposed and underexposed films.** This holds spec §7.2's rule that films are never generated. At twenty levels that is 60 films rather than 15.
+- **Vocabularies extended and film ids changed** (spec §7.1). Region gains `hand`, `elbow`, `humerus`, `tibfib`, `knee` and loses `ankle`; projection gains `caldwell` and `parietoacanthial`; a twenty-slug `pathology` vocabulary is new. Film ids take a pathology segment because four levels are PA chest and `xray-chest-pa-under` stopped being unique. Poses and collimation bases deliberately did not take it.
+- **The manifest roughly doubled rather than quadrupling**, 70 files to about 173, the client's share 22 to 73. Patients went 6 → 12 and collimation views 5 → 12 because the §7.1 grammar lets levels share files; films went 15 → 60, which is the real cost.
+- **Client documents reissued.** The level content sheet is rewritten around the twenty cases and now collects only the six things the database lacks, rather than asking the client to write cases they have already written. Asset lists 00, 01, 04, 05, and 06 regenerated; 02, 03, 07, and 08 were unaffected and left alone. List 04 deliberately names only the twenty correct poses — the forty wrong ones are a teaching judgement and are asked for, not invented.
+- **Two counts corrected during the work:** eleven levels carry a working film reference, not thirteen (levels 10 and 11 have a caption and level 12 a dead link); and nine cases give a single technique value against eleven giving a range, not seven and thirteen.
+- **Sixteen of twenty pose ids carry an inferred patient position.** The database names the projection everywhere but the patient's position in only four cases. Every inferred row is daggered in asset list 04 for the client to correct, and it is logged in spec §12.
+- **Two conflicts sent back to the client:** level 15 requests AP Skull but is positioned PA Caldwell; level 19 requests AP Erect but is positioned AP Abdomen with no erect qualifier.
+
+## 2026-09-07
+
+Asset naming, art direction, and a division of labour. No gameplay change; spec §7 rewritten with a revision log entry at §13.
+
+- **Every asset id follows a grammar now** — `group-subject-detail` over closed vocabularies (spec §7.1). An id is derivable from level data instead of looked up, so `schema.ts` validates the shape rather than membership of a hand-written list, and adding a patient or a second projection is a naming exercise rather than a manifest edit.
+- **Patients are named by age group, sex, and body habitus**, not nicknames: `patient-geriatric-female-hyposthenic` replaces `patient-older-woman`. Those three change how the exam is done and are already on the level JSON. Values taken from `level-content-sheet.md`, still `draft`, and the client is asked to correct them.
+- **Fifteen assets cut, 85 → 70.** The client asked to drop the six `patient-*-pain.png`; the same reasoning removed `radtech-portrait.png` and eight UI files the code produces for free (button hover/pressed states, the two console lamps, `star-empty`, `timer-ring`). 22 files are now genuinely the client's.
+- **Production split by group.** Backgrounds, the radtech hand, the interface, and the sounds are generated; patients and films stay with the client; positions and collimation views are the client's if they have time. Each client list states who produces it.
+- **`docs/art-direction.md` written** — a standing description of the look sampled from `reference-characters.jpg` (lineart `#3A2A22`, one cel shadow tone, a thirteen-colour palette, figure proportions, two reserved signal colours). It exists so client-drawn and generated assets sit in the same frame, and it is the prompt source for every generated file.
+- **X-ray films are excluded from generation as a rule.** A fabricated radiograph teaches a fabricated finding and looks convincing enough that neither party would catch it; a labelled grey box is the honest failure mode.
+- Open, both flagged and deferred to the medical reference material the client is providing: `pose-skull-ap-frontal` is described as a PA projection, and no patient on the sheet is hypersthenic.
+
 ## 2026-09-01
 
 Client returned the briefing. Their answers reframe the project from a casual game to an alternative learning activity, and that changed the loop rather than just its content. Spec revised in place with a revision log at §13.

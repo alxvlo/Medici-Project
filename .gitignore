@@ -20,3 +20,6 @@ coverage/
 .DS_Store
 Thumbs.db
 *.log
+
+# client source documents — large, kept locally (transcriptions are committed)
+docs/brief/case-database-2026-09.pdf
