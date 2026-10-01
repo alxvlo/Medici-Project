@@ -64,3 +64,60 @@ button:active:not(:disabled) { translate: 0 1px; }
   text-align: center; border: 3px solid #3a2a22; border-radius: 14px; background: #f3e7d3;
 }
 .panel .row { display: flex; gap: 10px; align-items: center; font-size: 18px; }
+
+.level { position: absolute; inset: 0; }
+.next { position: absolute; right: 24px; bottom: 24px; }
+.awaiting { padding: 0 4px; border-radius: 4px; background: #fff3cd; color: #8a6d3b; font-style: italic; }
+.art { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: fill; }
+
+.intake .patient { position: absolute; left: 140px; bottom: 0; height: 540px; animation: slide-in 600ms ease-out; }
+@keyframes slide-in { from { translate: -420px 0; opacity: 0; } }
+.intake .bubble {
+  position: absolute; left: 430px; top: 110px; width: 420px; padding: 28px 32px; isolation: isolate;
+  font-size: 19px; animation: pop 300ms 500ms ease-out both;
+}
+@keyframes pop { from { scale: .6; opacity: 0; } }
+
+.order-card {
+  position: absolute; left: 50%; top: 30px; width: 540px; translate: -50% 0; padding: 30px 36px;
+  isolation: isolate; font-size: 15px; animation: pop 300ms ease-out;
+}
+.order-card dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 0; }
+.order-card dl div { display: contents; }
+.order-card dt { font-weight: 700; }
+.order-card dd { margin: 0; white-space: pre-line; }
+.order-card.docked {
+  left: 8px; top: 8px; width: 236px; max-height: 624px; translate: none; padding: 14px; z-index: 5;
+  overflow-y: auto; font-size: 10.5px; animation: none; touch-action: pan-y;
+}
+.order-card.docked dl { grid-template-columns: 1fr; gap: 0; }
+.order-card.docked dd { margin-bottom: 4px; }
+
+.prompt {
+  position: absolute; left: 260px; right: 110px; top: 18px; margin: 0; padding: 8px; text-align: center;
+  font-size: 22px; font-weight: 800; border-radius: 10px; background: rgba(243, 231, 211, .92);
+}
+.timer {
+  position: absolute; right: 24px; top: 12px; width: 64px; height: 64px; border-radius: 50%; display: grid;
+  place-items: center; font-size: 20px; font-weight: 800;
+  background: conic-gradient(#b8432f calc(var(--p) * 360deg), #e8d9c0 0);
+}
+.timer span { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: #f3e7d3; }
+
+.poses { position: absolute; left: 260px; right: 24px; top: 170px; display: flex; justify-content: center; gap: 20px; }
+.pose {
+  width: 200px; height: 200px; padding: 0; overflow: hidden; border: 4px solid #3a2a22; border-radius: 12px;
+  background: #fff; touch-action: manipulation; -webkit-touch-callout: none;
+}
+.pose > * { width: 100%; height: 100%; object-fit: cover; }
+.pose-preview {
+  position: absolute; left: 50%; top: 50%; z-index: 10; width: 440px; height: 440px; translate: -50% -50%;
+  overflow: hidden; pointer-events: none; border: 4px solid #3a2a22; border-radius: 14px; background: #fff;
+}
+.pose-preview > * { width: 100%; height: 100%; object-fit: contain; }
+.correct-pose { width: 220px; height: 220px; object-fit: cover; border-radius: 10px; }
+
+/* Wrong-answer feedback: 400 ms red flash and shake (spec §6). */
+.wrong { animation: shake 400ms, flash 400ms; }
+@keyframes shake { 20%, 60% { translate: -8px 0; } 40%, 80% { translate: 8px 0; } }
+@keyframes flash { 30% { background-color: rgba(192, 57, 43, .45); } }

@@ -9,3 +9,18 @@ export async function seedSave(page: Page, save: Record<string, unknown> = {}) {
     if (!localStorage.getItem(key)) localStorage.setItem(key, v)
   }, [SAVE_KEY, value] as const)
 }
+
+/** Seeds a save with `id` unlocked and presses Start, which opens the highest unlocked level. */
+export async function startLevel(page: Page, id = 1) {
+  await seedSave(page, { unlocked: id })
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Start' }).click()
+}
+
+export async function throughOrder(page: Page) {
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await page.getByRole('button', { name: 'Dock the order' }).click()
+}
+
+export const poseButton = (page: Page, imageId: string) => page.locator(`button.pose:has([data-asset="${imageId}"])`)
+export const stageOf = (page: Page) => page.locator('[data-stage]')
