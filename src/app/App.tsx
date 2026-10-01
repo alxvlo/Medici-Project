@@ -9,6 +9,7 @@ import { Settings } from '../screens/Settings'
 import { levelById } from '../data/levels'
 import { mistakes, stars } from '../game/rules'
 import { Level } from '../stages/Level'
+import { Results } from '../screens/Results'
 
 const init = (): State => ({ screen: { name: 'title' }, save: loadSave(), settingsOpen: false })
 
@@ -33,6 +34,9 @@ export function App() {
             onFinish={(result) => dispatch({
               type: 'finish', id: screen.id, result, stars: stars(mistakes(result, levelById(screen.id))),
             })} />
+        )}
+        {screen.name === 'results' && (
+          <Results level={levelById(screen.id)} result={screen.result} dispatch={dispatch} />
         )}
         {state.settingsOpen && <Settings save={save} dispatch={dispatch} />}
       </div>

@@ -5,6 +5,9 @@ import { OrderCard } from '../ui/OrderCard'
 import { Intake } from './Intake'
 import { Order } from './Order'
 import { Position } from './Position'
+import { Technique } from './Technique'
+import { Collimate } from './Collimate'
+import { Expose } from './Expose'
 
 const STEPS = ['intake', 'order', 'position', 'technique', 'collimate', 'expose'] as const
 const INPUT_GUARD_MS = 300
@@ -32,6 +35,9 @@ export function Level({ level, onFinish }: { level: LevelData; onFinish: (r: Cas
       {name === 'intake' && <Intake level={level} onComplete={() => advance()} />}
       {name === 'order' && <Order level={level} onComplete={() => advance()} />}
       {name === 'position' && <Position level={level} onComplete={(pose) => advance({ pose })} />}
+      {name === 'technique' && <Technique level={level} onComplete={(v) => advance(v)} />}
+      {name === 'collimate' && <Collimate level={level} onComplete={(collimationFailures) => advance({ collimationFailures })} />}
+      {name === 'expose' && <Expose onComplete={() => advance()} />}
       {step >= 2 && <OrderCard level={level} docked />}
     </div>
   )
