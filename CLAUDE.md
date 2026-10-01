@@ -8,11 +8,11 @@ Medici — a browser game where the player is a radiologic technologist. Twenty 
 
 **Source of truth:** `docs/superpowers/specs/2026-08-27-medici-radtech-game-design.md`. Where the client's original brief (`docs/brief/`) disagrees with the spec, the spec wins. Do not re-litigate decisions recorded in spec §2.
 
-**Medical source of truth:** the client's case database, `docs/brief/case-database-2026-09.pdf` (gitignored, kept locally), transcribed to `case-database-2026-09.md` beside it. The PDF wins on any disagreement — fix the transcription, never the PDF. All twenty levels come from it. Do not invent medical facts; mark gaps and ask.
+**Medical source of truth:** `Medici Project/LIST OF CASES.docx`, confirmed by Vai on 2026-09-28. It supersedes the earlier `docs/brief/case-database-2026-09.pdf` and its Markdown transcription wherever they differ, including medical values and case grouping copied into the design spec. The older transcription is historical only. All twenty levels come from the new DOCX. Do not invent medical facts; mark gaps and ask.
 
 ## Current phase
 
-Design complete and revised, no app code yet. Next steps in order: write the implementation plan (`docs/superpowers/plans/`) with the `superpowers:writing-plans` skill → execute task by task. The first plan task scaffolds the app; update this file's Commands section then.
+No app code yet. The spec was reconciled with `LIST OF CASES.docx` and the client's art delivery on 2026-10-01 (spec §13). The implementation plan is `docs/superpowers/plans/2026-10-01-medici-v1-plan.md`: all twenty levels playable on the delivered art with placeholder values, shippable to a preview URL. Its first task scaffolds the app; update this file's Commands section then.
 
 The **2026-09-10 revision is the largest since the spec was written**: the client's case database took the game from five levels to twenty. Read spec §5 for the level table and §13 for what moved. Crucially it changed the *size* of the game, not the shape of its loop — §4.3, §4.4, §4.5, and §6 are untouched. It also extended the §7.1 vocabularies, gave film ids a pathology segment (four levels are PA chest, so region+projection stopped being unique), and took the manifest from 70 files to about 173.
 
@@ -41,15 +41,15 @@ Spec → plan → implement, using the superpowers skills (`brainstorming`, `wri
 - `src/app/` — `Stage`, screen state machine (`title → levelSelect → level(n) → results(n)`), one `useReducer` store, `save.ts` (single `localStorage` key `medici.save.v1`, versioned).
 - `src/stages/` — one component per level stage (Intake, Order, Position, Technique, Collimate, Expose, Result). Each takes `(level, onComplete(result))` and knows nothing about its siblings.
 - `src/data/levels/*.json` + `schema.ts` — all level content is data, validated by zod at build and load. Image fields are asset ids, never paths.
-- `src/assets.ts` — the single asset id → path list; a missing file renders a labelled placeholder box.
+- `src/assets.ts` — the asset id → URL manifest, built from `src/assets/` by `import.meta.glob`; an unknown id renders a labelled placeholder box.
 - Scoring/feedback rules (spec §6): mistakes only from position (max 1), kVp, mAs, and collimation (max 1, however many attempts); timer expiry folds into its own stage and never double-counts; `expose` cannot be failed; stars 0→3, 1–2→2, 3+→1; no fail state.
 - The film is a pure function of kVp/mAs alone (spec §4.4) and must not render anywhere before the `expose` stage. Position and collimation never affect it. `under` wins when one value is low and the other high.
 
 ## Content and asset rules
 
-- Medical values in level JSON come from the case database (see above) and stay `"draft": true` until the six gaps in spec §12 are filled by `docs/client/level-content-sheet.md`. The sheet no longer carries draft cases; it collects only what the database lacks. Do not invent new medical facts — mark gaps and ask.
-- Asset ids follow the naming grammar in spec §7.1 — `group-subject-detail` over closed vocabularies — and must match the filenames in `docs/client/assets/*.md` (eight per-group checklists plus `00-index.md`). Those files are the naming contract with the client. Patients are keyed `patient-<age>-<sex>-<habitus>`; films `xray-<region>-<projection>-<pathology>-<under|optimal|over>` — films alone carry the pathology segment, because four levels are PA chest and region+projection is no longer unique. Never invent a vocabulary word; extend §7.1 first.
-- AI-generated art goes only in `public/assets/generated/` and never moves out; client art goes in the group folders. **The sixty X-ray films are never generated** — a fabricated radiograph teaches a fabricated finding. A labelled grey box is the correct failure mode there.
+- Medical values in level JSON come from the case database (see above) and stay `"draft": true` until the client answers the spec §12 open items via `docs/client/level-content-sheet.md`. Spec §5 lists the placeholder values the game runs on meanwhile; a missing sentence renders "Awaiting client". Do not invent new medical facts — mark gaps and ask.
+- Asset ids are the client's own filenames without extension (spec §7.1, since 2026-10-01), lowercased, with ` (1)` suffixes dropped and `Web Game Logo.png` as `logo`. The old `group-subject-detail` grammar and the `docs/client/assets/*.md` checklists are historical. Film ids are the one derived id: `xray-<films.slug>-<good|under|over>`.
+- AI-generated art goes only in `src/assets/generated/` and never moves out; client art goes in the group folders under `src/assets/`. **The sixty X-ray films are never generated** — a fabricated radiograph teaches a fabricated finding. A labelled grey box is the correct failure mode there. The films carry Radiopaedia credits burned in; never crop them.
 - `docs/art-direction.md` is the look: palette, lineart, proportions, and the exact three-part prompt recipe for generating an asset. Read it before generating anything; do not embellish a prompt beyond what it specifies.
 - Documents in `docs/client/` are for a non-technical client: no jargon, no stack names, formatted for pasting into Google Docs (no bare `____` lines — Markdown renders them as rules).
 
