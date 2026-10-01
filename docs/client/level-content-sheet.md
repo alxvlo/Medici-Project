@@ -472,5 +472,6 @@ Michael R. Aquino, 43. Perform PA.
 - **Levels 10, 11, 12 and 19** use the same AP abdomen picture, but level 19 is upright and the others are lying down. Do you have an upright picture?
 - **Level 14** is a nasal bone lateral, shown with the whole-skull lateral picture. Is that close enough?
 - **Every level's doctor's order** includes the "Mission" line (for example "Perform PA"), which names the right position. Keep it, or hide it so students have to work out the position themselves?
+- **Levels 2, 4, 5, 6, 11, 14 and 17** have no Relevant History in your list, so the order form leaves that line out. Is that right, or would you like to add one?
 - **Positioning pictures**: most still show the collimation light and the "+" mark. Could you send cleaned copies under the same file names? They will drop straight in.
 - **The X-ray films** come from Radiopaedia, with their credit lines kept on each image. Is the game free to use, or will it ever be sold? Radiopaedia images usually allow free, non-commercial use only.

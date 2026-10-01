@@ -15,7 +15,7 @@ New client questions are in spec §12.
 
 First playable build: all twenty levels, the full loop, the debrief, and the save, on the client's delivered art.
 The level content sheet is reissued for the twenty cases, asking only for what the case list lacks plus
-seven questions from spec §12. Not yet deployed. Departures from the spec, all small: `motion` and
+eight questions from spec §12. Not yet deployed, and the branch is not pushed. Departures from the spec, all small: `motion` and
 `prettier` were not installed (CSS keyframes do the tweens); the docked order card and the results debrief
 scroll inside the stage; `npm run build` runs the unit tests first so a malformed level fails the build;
 and each stage ignores input for 300 ms after it appears so a double-click cannot skip it.
