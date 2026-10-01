@@ -1,12 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Stage } from './app/Stage'
+import { App } from './app/App'
 import './styles.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Stage>
-      <p>Radtech Simulator</p>
-    </Stage>
+    <App />
   </StrictMode>,
 )

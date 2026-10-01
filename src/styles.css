@@ -21,3 +21,46 @@ body { font-family: system-ui, sans-serif; color: #3a2a22; }
   min-width: 40px; min-height: 40px; background: #9a9a9a; color: #222; border: 2px dashed #555;
   font: 12px/1.2 ui-monospace, monospace;
 }
+
+.app, .screen { position: absolute; inset: 0; }
+.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+button { font: inherit; cursor: pointer; color: inherit; }
+.btn {
+  min-width: 200px; padding: 12px 20px; border: 3px solid #3a2a22; border-radius: 10px;
+  background: #f5d9a8; color: #3a2a22; font-size: 20px; font-weight: 700;
+}
+button:hover:not(:disabled) { filter: brightness(1.08); }
+button:active:not(:disabled) { translate: 0 1px; }
+
+.title .logo { position: absolute; left: 50%; top: 40px; width: 420px; translate: -50% 0; }
+.menu { position: absolute; left: 50%; top: 330px; translate: -50% 0; display: flex; flex-direction: column; gap: 14px; }
+
+.level-select header {
+  position: absolute; inset: 0 0 auto; height: 64px; z-index: 1; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 16px; background: rgba(58, 42, 34, .88); color: #efe6d8;
+}
+.level-select h1 { font-size: 24px; margin: 0; }
+.icon-btn { width: 44px; height: 44px; padding: 4px; border: 0; background: none; }
+.icon-btn > * { width: 100%; height: 100%; min-width: 0; min-height: 0; }
+.card-list { position: absolute; inset: 64px 0 0; overflow-y: auto; padding: 8px 24px 32px; touch-action: pan-y; }
+.card-list h2 { margin: 16px 0 8px; color: #efe6d8; text-shadow: 0 1px 3px #000; }
+.progress { margin-left: 8px; font-size: 14px; opacity: .85; }
+.cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.card {
+  height: 132px; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  border: 3px solid #3a2a22; border-radius: 10px; background: #f3e7d3;
+}
+.card:disabled { opacity: .55; cursor: not-allowed; }
+.card .num { font-size: 22px; font-weight: 800; }
+.card .name { font-size: 13px; font-weight: 700; text-align: center; }
+.card .exam { font-size: 11px; }
+.card .lock { width: 24px; height: 24px; min-width: 0; min-height: 0; }
+.stars { display: inline-flex; gap: 2px; }
+.star { width: 22px; height: 22px; min-width: 0; min-height: 0; }
+
+.overlay { position: absolute; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, .55); }
+.panel {
+  min-width: 420px; max-width: 640px; padding: 24px; display: flex; flex-direction: column; gap: 14px; align-items: center;
+  text-align: center; border: 3px solid #3a2a22; border-radius: 14px; background: #f3e7d3;
+}
+.panel .row { display: flex; gap: 10px; align-items: center; font-size: 18px; }
