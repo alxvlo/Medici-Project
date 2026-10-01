@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { AnimatePresence } from "motion/react";
+import { Fade } from "../ui/Fade";
 import type { Level as LevelData } from "../data/schema";
 import type { CaseResult } from "../game/rules";
 import { OrderCard } from "../ui/OrderCard";
@@ -49,23 +51,32 @@ export function Level({
       data-stage={name}
       style={armed === step ? undefined : { pointerEvents: "none" }}
     >
-      {name === "intake" && (
-        <Intake level={level} onComplete={() => advance()} />
-      )}
-      {name === "order" && <Order level={level} onComplete={() => advance()} />}
-      {name === "position" && (
-        <Position level={level} onComplete={(pose) => advance({ pose })} />
-      )}
-      {name === "technique" && (
-        <Technique level={level} onComplete={(v) => advance(v)} />
-      )}
-      {name === "collimate" && (
-        <Collimate
-          level={level}
-          onComplete={(collimationFailures) => advance({ collimationFailures })}
-        />
-      )}
-      {name === "expose" && <Expose onComplete={() => advance()} />}
+      <AnimatePresence>
+        <Fade key={name}>
+          {name === "intake" && (
+            <Intake level={level} onComplete={() => advance()} />
+          )}
+          {name === "order" && (
+            <Order level={level} onComplete={() => advance()} />
+          )}
+          {name === "position" && (
+            <Position level={level} onComplete={(pose) => advance({ pose })} />
+          )}
+          {name === "technique" && (
+            <Technique level={level} onComplete={(v) => advance(v)} />
+          )}
+          {name === "collimate" && (
+            <Collimate
+              level={level}
+              onComplete={(collimationFailures) =>
+                advance({ collimationFailures })
+              }
+            />
+          )}
+          {name === "expose" && <Expose onComplete={() => advance()} />}
+        </Fade>
+      </AnimatePresence>
+
       {step >= 2 && <OrderCard level={level} docked />}
     </div>
   );

@@ -1,4 +1,5 @@
 import type { Dispatch } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import type { Action } from "../app/store";
 import type { Level } from "../data/schema";
 import {
@@ -60,6 +61,8 @@ export function Results({
   result: CaseResult;
   dispatch: Dispatch<Action>;
 }) {
+  const reduce = useReducedMotion();
+  const secs = (s: number) => (reduce ? 0 : s);
   const t = level.technique;
   const film = filmFor(result.kvp, result.mas, t);
   const correct = correctOption(level);
@@ -74,18 +77,28 @@ export function Results({
   return (
     <div className="screen results">
       <Img id="bg-viewer" className="bg" />
-      <div className="lightbox">
+      <motion.div
+        className="lightbox"
+        initial={{ opacity: 0, filter: "brightness(3)" }}
+        animate={{ opacity: 1, filter: "brightness(1)" }}
+        transition={{ duration: secs(1.2), ease: "easeOut" }}
+      >
         <Img
           id={filmId(level.films.slug, film)}
           className="film"
           alt={`${FILM_LABEL[film]} radiograph`}
         />
-      </div>
-      <div className="debrief">
+      </motion.div>
+      <motion.div
+        className="debrief"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: secs(0.5), duration: secs(0.3) }}
+      >
         <h2>
           Level {level.id}: {level.title}
         </h2>
-        <Stars n={stars(mistakes(result, level))} />
+        <Stars n={stars(mistakes(result, level))} pop />
         <table>
           <tbody>
             <Row
@@ -157,7 +170,7 @@ export function Results({
             <p>{level.findings}</p>
           </section>
         )}
-      </div>
+      </motion.div>
       <div className="actions">
         {level.id < 20 && (
           <button className="btn" onClick={() => go(level.id + 1)}>

@@ -30,6 +30,7 @@
   "homepage": "https://github.com/alxvlo/Medici-Project#readme",
   "private": true,
   "dependencies": {
+    "motion": "^13.4.6",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "zod": "^4.6.5"

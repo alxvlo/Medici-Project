@@ -1,4 +1,6 @@
 import { useEffect, useReducer, type MouseEvent } from "react";
+import { AnimatePresence } from "motion/react";
+import { Fade } from "../ui/Fade";
 import { Stage } from "./Stage";
 import { reducer, type State } from "./store";
 import { loadSave, writeSave } from "./save";
@@ -28,34 +30,42 @@ export function App() {
     startAmbience();
   };
 
+  const key = "id" in screen ? `${screen.name}-${screen.id}` : screen.name;
+
   return (
     <Stage>
       <div className="app" onClickCapture={onClickCapture}>
-        {screen.name === "title" && <Title save={save} dispatch={dispatch} />}
-        {screen.name === "levelSelect" && (
-          <LevelSelect save={save} dispatch={dispatch} />
-        )}
-        {screen.name === "level" && (
-          <Level
-            key={screen.id}
-            level={levelById(screen.id)}
-            onFinish={(result) =>
-              dispatch({
-                type: "finish",
-                id: screen.id,
-                result,
-                stars: stars(mistakes(result, levelById(screen.id))),
-              })
-            }
-          />
-        )}
-        {screen.name === "results" && (
-          <Results
-            level={levelById(screen.id)}
-            result={screen.result}
-            dispatch={dispatch}
-          />
-        )}
+        <AnimatePresence>
+          <Fade key={key}>
+            {screen.name === "title" && (
+              <Title save={save} dispatch={dispatch} />
+            )}
+            {screen.name === "levelSelect" && (
+              <LevelSelect save={save} dispatch={dispatch} />
+            )}
+            {screen.name === "level" && (
+              <Level
+                key={screen.id}
+                level={levelById(screen.id)}
+                onFinish={(result) =>
+                  dispatch({
+                    type: "finish",
+                    id: screen.id,
+                    result,
+                    stars: stars(mistakes(result, levelById(screen.id))),
+                  })
+                }
+              />
+            )}
+            {screen.name === "results" && (
+              <Results
+                level={levelById(screen.id)}
+                result={screen.result}
+                dispatch={dispatch}
+              />
+            )}
+          </Fade>
+        </AnimatePresence>
         {state.settingsOpen && <Settings save={save} dispatch={dispatch} />}
       </div>
     </Stage>

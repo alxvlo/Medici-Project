@@ -24,7 +24,7 @@ The 2026-09-01 revision changed the shape of the game rather than its values. Th
 
 Vite + React 19 + TypeScript, DOM-first. A fixed 960×640 `<Stage>` letterboxed and CSS-scaled to the viewport, landscape only. `motion` for tweens, `zod` for level validation. No state library, no router, no UI kit. Tests: vitest (pure logic) + Playwright (end-to-end, desktop and mobile-landscape viewports). Package manager: npm; `package-lock.json` is canonical. Hosting: Cloudflare Pages (Vercel Hobby is non-commercial and was rejected).
 
-As built (2026-10-01, pending Vai's sign-off): `motion` and `prettier` are not installed — CSS keyframes cover the tweens; the docked order card and the results debrief scroll inside the stage; `npm run build` runs the unit tests first; each stage ignores clicks for 300 ms after it appears.
+As built (2026-10-01, pending Vai's sign-off): `prettier` (formatting `src` and `tests`; `npm run format`) and `motion` (screen and stage cross-fades via `src/ui/Fade.tsx`, the results film reveal, and the debrief stars) were added the same day. The intake slide and the wrong-answer shake stay CSS (spec §6 fixes the shake at 400 ms). The docked order card and the results debrief scroll inside the stage; `npm run build` runs the unit tests first; each stage ignores clicks for 300 ms after it appears.
 
 Phaser, Godot, and Unity were evaluated and rejected for this game (`docs/research/2026-08-27-tooling-research.md`). If a level ever needs spatial gameplay, embed a Phaser scene in a component — do not rewrite.
 

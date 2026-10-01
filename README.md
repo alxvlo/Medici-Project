@@ -10,6 +10,7 @@ A browser-based learning activity in which the student is a radiologic technolog
 - The client delivered every asset group, all sixty X-ray films included. Their filenames are the asset ids
 - Twenty levels in six sections: chest, upper extremity, lower extremity, abdomen, and skull with three cases each, then a five-case refresher
 - The game runs on placeholder values (spec §5) for what the database lacks: wrong-pose reasons, kVp/mAs tolerances, collimation size, debrief copy, and patient lines. Every level stays `draft` until the client confirms them; open questions are in spec §12
+- Polish added the same day: `prettier` and `motion` (screen and stage cross-fades, film reveal, debrief stars). Plan: `docs/superpowers/plans/2026-10-01-motion-polish-plan.md`
 - Built from `docs/superpowers/plans/2026-10-01-medici-v1-plan.md`. `npm run qa` is the gate; `npm run dev` to play
 - Waiting on the client: `docs/client/level-content-sheet.md` (reissued 2026-10-01 for the twenty cases)
 - Next: Cloudflare Pages preview for the client (needs Vai to connect the GitHub repo)
