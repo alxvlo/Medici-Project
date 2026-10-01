@@ -11,7 +11,7 @@ const afterClick = (page: Page, label: string, frames: number) =>
   page.evaluate(
     async ([text, n]) => {
       // A long task at page load can swallow the whole fade; click only once the main thread is idle.
-      await new Promise((r) => requestIdleCallback(r));
+      await new Promise((r) => requestIdleCallback(r, { timeout: 2000 }));
       const button = [...document.querySelectorAll("button")].find(
         (b) => b.textContent?.trim() === text,
       );
