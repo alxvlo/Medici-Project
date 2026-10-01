@@ -35,7 +35,15 @@ export function Expose({ onComplete }: { onComplete: () => void }) {
       <Img id="bg-console" className="bg" />
       <p className="prompt" role="status">{PROMPT[phase]}</p>
       <button className="expose-button" aria-label="Hold to expose"
-        onPointerDown={press} onPointerUp={release} onPointerLeave={release} onPointerCancel={release}
+        onPointerDown={(e) => {
+          if (e.button !== 0) return // a right or middle click is not a press
+          // Touch implicitly captures the pointer to the element under the finger (the art inside the button),
+          // which would hide a finger sliding off. The capture sits on the target, not on the button.
+          const art = e.target as Element
+          art.releasePointerCapture(e.pointerId)
+          press()
+        }}
+        onPointerUp={release} onPointerLeave={release} onPointerCancel={release}
         onKeyDown={(e) => { if (isKey(e.key)) { e.preventDefault(); if (!e.repeat) press() } }}
         onKeyUp={(e) => { if (isKey(e.key)) release() }}
         onContextMenu={(e) => e.preventDefault()}>

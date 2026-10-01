@@ -1,7 +1,9 @@
 import type { Dispatch } from 'react'
 import type { Action } from '../app/store'
 import type { Level } from '../data/schema'
-import { checkTechnique, filmFor, mistakes, stars, type CaseResult, type Film } from '../game/rules'
+import {
+  checkPosition, checkTechnique, collimatedFirstTry, filmFor, mistakes, stars, type CaseResult, type Film,
+} from '../game/rules'
 import { filmId } from '../assets'
 import { correctOption } from '../data/levels'
 import { Copy } from '../ui/Copy'
@@ -26,9 +28,10 @@ export function Results({ level, result, dispatch }: { level: Level; result: Cas
   const film = filmFor(result.kvp, result.mas, t)
   const correct = correctOption(level)
   const chosen = level.position.options.find((o) => o.image === result.pose)
-  const poseOk = chosen?.correct ?? false
+  const poseOk = checkPosition(result.pose, level)
   const kvpOk = checkTechnique(result.kvp, t.kvp)
   const masOk = checkTechnique(result.mas, t.mas)
+  const collimOk = collimatedFirstTry(result.collimationFailures)
   const go = (id: number) => dispatch({ type: 'go', screen: { name: 'level', id } })
 
   return (
@@ -49,8 +52,8 @@ export function Results({ level, result, dispatch }: { level: Level; result: Cas
               note={kvpOk ? undefined : t.wrongKvp} />
             <Row name="mAs" ok={masOk} value={masOk ? `${result.mas}` : `set ${result.mas} · correct ${t.mas.target}`}
               note={masOk ? undefined : t.wrongMas} />
-            <Row name="Collimation" ok={result.collimationFailures === 0}
-              value={result.collimationFailures === 0 ? 'First attempt' : `${result.collimationFailures + 1} attempts`} />
+            <Row name="Collimation" ok={collimOk}
+              value={collimOk ? 'First attempt' : `${result.collimationFailures + 1} attempts`} />
             {/* The film follows from kVp and mAs, already marked above: reported, never marked or counted (spec §4.5). */}
             <tr className="film-row">
               <th>Film</th>

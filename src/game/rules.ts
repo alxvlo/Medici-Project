@@ -31,14 +31,20 @@ export function filmFor(kvp: number, mas: number, t: { kvp: DialSpec; mas: DialS
 export const checkCollimation = (field: { w: number; h: number }, c: CollimationSpec) =>
   Math.abs(field.w - c.target.w) <= c.tolerance && Math.abs(field.h - c.target.h) <= c.tolerance
 
+/** A null pose (the timer ran out) is never correct. */
+export const checkPosition = (pose: string | null, level: Pick<ScoredLevel, 'position'>) =>
+  level.position.options.some((o) => o.correct && o.image === pose)
+
+/** Collimation scores on whether the first attempt was right, however many attempts followed (spec §6). */
+export const collimatedFirstTry = (failures: number) => failures === 0
+
 /** At most one each from position, kVp, mAs, and collimation (spec §6). */
 export function mistakes(r: CaseResult, level: ScoredLevel): number {
-  const correctPose = level.position.options.find((o) => o.correct)?.image
   return (
-    Number(r.pose !== correctPose) +
+    Number(!checkPosition(r.pose, level)) +
     Number(!checkTechnique(r.kvp, level.technique.kvp)) +
     Number(!checkTechnique(r.mas, level.technique.mas)) +
-    Number(r.collimationFailures > 0)
+    Number(!collimatedFirstTry(r.collimationFailures))
   )
 }
 

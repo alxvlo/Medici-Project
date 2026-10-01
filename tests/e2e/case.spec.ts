@@ -129,12 +129,37 @@ test('a double click on Confirm advances once, and its second click never reache
   await page.getByLabel('mAs', { exact: true }).fill('4')
   await page.getByRole('button', { name: 'Confirm' }).dblclick()
   await expect(stageOf(page)).toHaveAttribute('data-stage', 'collimate')
-  await expect(page.locator('.collim-view.wrong')).toHaveCount(0)
+  // Start-state checks: collimation opens fully open, untouched by the second click.
   await expect(page.getByLabel('Width', { exact: true })).toHaveValue('100')
   await expect(page.getByLabel('Height', { exact: true })).toHaveValue('100')
   await collimate(page)
   await expose(page)
   await expect(page.getByRole('img', { name: '3 of 3 stars' })).toBeVisible() // no stray collimation mistake
+})
+
+test('a double click on the correct pose advances once, and its second click never reaches the technique console', async ({ page }) => {
+  await startLevel(page, 1)
+  await throughOrder(page)
+  await poseButton(page, 'pose-chest-pa').dblclick()
+  await expect(stageOf(page)).toHaveAttribute('data-stage', 'technique')
+  // Start-state checks: the dials begin at their minimum (spec §5) and nothing has moved them.
+  await expect(page.getByLabel('kVp', { exact: true })).toHaveValue('40')
+  await expect(page.getByLabel('mAs', { exact: true })).toHaveValue('0.5')
+  await setTechnique(page, 125, 4)
+  await collimate(page)
+  await expose(page)
+  await expect(page.getByRole('img', { name: '3 of 3 stars' })).toBeVisible()
+})
+
+// The pose thumbnails sit over the dial faces, which are plain art, so the test above cannot hit a control.
+// This one aims the follow-up click at a real console control, inside the first 300 ms of the stage.
+test('a click landing on the console right after the pose is chosen does not move a dial', async ({ page }) => {
+  await startLevel(page, 1)
+  await throughOrder(page)
+  await poseButton(page, 'pose-chest-pa').click()
+  const up = await page.getByRole('button', { name: 'kVp up' }).boundingBox()
+  await page.mouse.click(up!.x + up!.width / 2, up!.y + up!.height / 2)
+  await expect(page.getByLabel('kVp', { exact: true })).toHaveValue('40')
 })
 
 test('sliding off the exposure button during prep aborts and never fires', async ({ page }) => {
@@ -151,4 +176,39 @@ test('sliding off the exposure button during prep aborts and never fires', async
   await page.mouse.up()
   await expect(stageOf(page)).toHaveAttribute('data-stage', 'expose')
   await expect(film(page)).toHaveCount(0)
+})
+
+test('on touch, a finger sliding off the exposure button during prep aborts it', async ({ page, isMobile }) => {
+  test.skip(!isMobile, 'touch gesture')
+  await startLevel(page, 1)
+  await throughOrder(page)
+  await poseButton(page, 'pose-chest-pa').click()
+  await setTechnique(page, 125, 4)
+  await collimate(page)
+  const button = page.getByRole('button', { name: 'Hold to expose' })
+  await button.click({ trial: true }) // waits out the stage's input guard without pressing
+  const box = (await button.boundingBox())!
+  const cdp = await page.context().newCDPSession(page)
+  const touch = (type: 'touchStart' | 'touchMove' | 'touchEnd', x: number, y: number) =>
+    cdp.send('Input.dispatchTouchEvent', { type, touchPoints: type === 'touchEnd' ? [] : [{ x, y }] })
+  await touch('touchStart', box.x + box.width / 2, box.y + box.height / 2)
+  await expect(page.getByRole('status')).toHaveText(/Rotor prep/)
+  await touch('touchMove', 5, 5)
+  await expect(page.getByRole('status')).toHaveText(/Released too early/)
+  await page.waitForTimeout(2_000) // longer than the 1.5 s prep: the exposure must not fire anyway
+  await touch('touchEnd', 5, 5)
+  await expect(film(page)).toHaveCount(0)
+})
+
+test('holding the right mouse button on the exposure button does not start the exposure', async ({ page }) => {
+  await startLevel(page, 1)
+  await throughOrder(page)
+  await poseButton(page, 'pose-chest-pa').click()
+  await setTechnique(page, 125, 4)
+  await collimate(page)
+  await page.getByRole('button', { name: 'Hold to expose' }).hover()
+  await page.mouse.down({ button: 'right' })
+  await page.waitForTimeout(2_000) // longer than the 1.5 s prep
+  await expect(page.getByRole('status')).toHaveText('Press and hold to take the exposure')
+  await page.mouse.up({ button: 'right' })
 })

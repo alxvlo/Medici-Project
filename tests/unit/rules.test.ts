@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { checkTechnique, filmFor, checkCollimation, mistakes, stars, type CaseResult } from '../../src/game/rules'
+import {
+  checkTechnique, filmFor, checkCollimation, checkPosition, collimatedFirstTry, mistakes, stars, type CaseResult,
+} from '../../src/game/rules'
 
 const kvp = { target: 125, tolerance: 13, step: 1 }
 const mas = { target: 2.5, tolerance: 0.3, step: 0.1 }
@@ -72,4 +74,20 @@ describe('mistakes', () => {
     expect(mistakes({ ...clean, kvp: 112, mas: 2.8 }, level)).toBe(0))
   it('caps at 4', () =>
     expect(mistakes({ pose: null, kvp: 40, mas: 0.5, collimationFailures: 9 }, level)).toBe(4))
+})
+
+describe('checkPosition', () => {
+  it('is true only for the correct pose', () => {
+    expect(checkPosition('pose-chest-pa', level)).toBe(true)
+    expect(checkPosition('pose-chest-ap', level)).toBe(false)
+  })
+  it('is false when the timer ran out and no pose was chosen', () => expect(checkPosition(null, level)).toBe(false))
+})
+
+describe('collimatedFirstTry', () => {
+  it('is true with no failed attempts and false with any', () => {
+    expect(collimatedFirstTry(0)).toBe(true)
+    expect(collimatedFirstTry(1)).toBe(false)
+    expect(collimatedFirstTry(3)).toBe(false)
+  })
 })
