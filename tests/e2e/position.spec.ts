@@ -79,7 +79,7 @@ test('on touch, a long-press previews a pose without choosing it', async ({ page
   test.skip(!isMobile, 'touch gesture')
   await startLevel(page, 1)
   await throughOrder(page)
-  const pose = poseButton(page, 'pose-chest-ap')
+  const pose = poseButton(page, 'pose-chest-pa') // the correct pose: a commit would move the case on to technique
   await pose.dispatchEvent('pointerdown', { pointerType: 'touch' })
   await expect(page.getByTestId('pose-preview')).toBeVisible()
   await pose.dispatchEvent('pointerup', { pointerType: 'touch' })
