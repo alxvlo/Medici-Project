@@ -1,0 +1,48 @@
+{
+  "id": 15,
+  "title": "Paget's disease",
+  "section": "skull",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-old-woman",
+    "name": "Elena P. Navarro",
+    "age": 80,
+    "sex": "Female",
+    "habitus": "Sthenic",
+    "dob": "03-February-1946",
+    "patientId": "020346-80642",
+    "admitted": "20-July-2026 0900H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Follow-up evaluation for Paget's disease involving the skull",
+    "history": "Paget's disease of the skull; diabetes mellitus",
+    "diagnosis": "Paget's Disease of Bone (Skull)",
+    "exam": "Skull X-ray",
+    "requested": "AP, AP Towne, PA Caldwell, Lateral",
+    "mission": "Perform AP",
+    "structures": null
+  },
+  "findings": null,
+  "position": {
+    "options": [
+      { "image": "pose-skull-ap", "label": "AP skull", "correct": true, "why": null },
+      { "image": "pose-skull-lateral", "label": "Lateral skull", "correct": false, "why": null },
+      { "image": "pose-skull-pa", "label": "PA skull", "correct": false, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 80, "tolerance": 8, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 20, "tolerance": 2, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate on four sides to anatomy of interest",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "pagets", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}

@@ -1,0 +1,48 @@
+{
+  "id": 4,
+  "title": "Boxer's fracture",
+  "section": "upper-ext",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-young-man",
+    "name": "Samuel R. Villanueva",
+    "age": 40,
+    "sex": "Male",
+    "habitus": "Hypersthenic",
+    "dob": "12-January-1986",
+    "patientId": "011286-10432",
+    "admitted": "31-Aug-2026 0915H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Right hand and wrist pain with swelling after accidentally falling on an outstretched hand",
+    "history": null,
+    "diagnosis": "Suspected 5th metacarpal fracture",
+    "exam": "Right hand X-ray",
+    "requested": "PA, Lateral, Oblique",
+    "mission": "Perform PA",
+    "structures": null
+  },
+  "findings": null,
+  "position": {
+    "options": [
+      { "image": "pose-hand-ap", "label": "AP hand", "correct": false, "why": null },
+      { "image": "pose-hand-lateral", "label": "Lateral hand", "correct": false, "why": null },
+      { "image": "pose-hand-pa", "label": "PA hand", "correct": true, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 60, "tolerance": 6, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 4, "tolerance": 0.4, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate on four sides to outer margins of hand and wrist.",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "boxerfx", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}

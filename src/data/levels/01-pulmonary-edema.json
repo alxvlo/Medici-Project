@@ -1,0 +1,48 @@
+{
+  "id": 1,
+  "title": "Pulmonary edema",
+  "section": "chest",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-old-man",
+    "name": "Fernando R. Castillo",
+    "age": 70,
+    "sex": "Male",
+    "habitus": "Hypersthenic",
+    "dob": "09-May-1956",
+    "patientId": "050956-70418",
+    "admitted": "01-September-2026 1045H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Increasing shortness of breath",
+    "history": "Recently diagnosed with colon cancer",
+    "diagnosis": "Dyspnea; patient with recent diagnosis of colon cancer",
+    "exam": "Chest X-ray",
+    "requested": "PA, Lateral",
+    "mission": "Perform PA",
+    "structures": null
+  },
+  "findings": "Large volume left-sided pleural effusion. Moderate volume right-sided pleural effusion.",
+  "position": {
+    "options": [
+      { "image": "pose-chest-ap", "label": "AP chest", "correct": false, "why": null },
+      { "image": "pose-chest-lateral", "label": "Lateral chest", "correct": false, "why": null },
+      { "image": "pose-chest-pa", "label": "PA chest", "correct": true, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 125, "tolerance": 13, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 4, "tolerance": 0.4, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate on four sides to area of lung fields",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "pulmonaryedema", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}

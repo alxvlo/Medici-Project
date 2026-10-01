@@ -1,0 +1,48 @@
+{
+  "id": 11,
+  "title": "Renal calculi",
+  "section": "abdomen",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-young-man",
+    "name": "John C. Hopkins",
+    "age": 25,
+    "sex": "Male",
+    "habitus": "Sthenic",
+    "dob": "14-July-2001",
+    "patientId": "071401-25481",
+    "admitted": "02-September-2026 0900H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Bilateral flank pain for several months",
+    "history": null,
+    "diagnosis": "Suspected Bilateral Renal Calculi (Kidney Stones)",
+    "exam": "KUB X-ray",
+    "requested": "AP Supine",
+    "mission": "Perform AP Supine",
+    "structures": "if possible, the diaphragm should be included superiorly\nthe abdomen should be free from rotation with symmetry of the:\nribs (superior)\niliac crests (middle)\nobturator foramen (inferior)\nno blurring of the bowel gas due to respiratory motion"
+  },
+  "findings": null,
+  "position": {
+    "options": [
+      { "image": "pose-abd-ap", "label": "AP abdomen", "correct": true, "why": null },
+      { "image": "pose-abd-lateral", "label": "Lateral abdomen", "correct": false, "why": null },
+      { "image": "pose-abd-oblique", "label": "Oblique abdomen", "correct": false, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 75, "tolerance": 8, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 16, "tolerance": 1.6, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate on four sides to anatomy of interest",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "renalcalculi", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}

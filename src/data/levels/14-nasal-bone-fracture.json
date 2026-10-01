@@ -1,0 +1,48 @@
+{
+  "id": 14,
+  "title": "Nasal bone fracture",
+  "section": "skull",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-young-man",
+    "name": "Daniel J. Cruz",
+    "age": 20,
+    "sex": "Male",
+    "habitus": "Sthenic",
+    "dob": "14-February-2006",
+    "patientId": "021406-45219",
+    "admitted": "31-Aug-2026 1300H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Nasal pain, swelling, and tenderness following facial trauma during a recreational activity",
+    "history": null,
+    "diagnosis": "Suspected nasal bone fracture",
+    "exam": "Nasal Bone X-ray",
+    "requested": "Waters', Right & Left Lateral",
+    "mission": "Perform Right Lateral",
+    "structures": null
+  },
+  "findings": "Lucency is seen within the nasal bone with overlying soft tissue swelling depicting a nondisplaced fracture",
+  "position": {
+    "options": [
+      { "image": "pose-skull-ap", "label": "AP skull", "correct": false, "why": null },
+      { "image": "pose-skull-lateral", "label": "Lateral skull", "correct": true, "why": null },
+      { "image": "pose-skull-pa", "label": "PA skull", "correct": false, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 70, "tolerance": 7, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 12.5, "tolerance": 1.3, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate on four sides to anatomy of interest",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "nasalfx", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}
