@@ -26,11 +26,12 @@ Vite + React 19 + TypeScript, DOM-first. A fixed 960×640 `<Stage>` letterboxed 
 
 Phaser, Godot, and Unity were evaluated and rejected for this game (`docs/research/2026-08-27-tooling-research.md`). If a level ever needs spatial gameplay, embed a Phaser scene in a component — do not rewrite.
 
-## Commands (once scaffolded)
+## Commands
 
 - `npm run dev` — local play with hot reload
 - `npm run qa` — the gate: typecheck + lint + vitest + playwright. **Nothing is done until this passes.**
 - `npx vitest run tests/unit/<file>.test.ts` — one unit file; `npx playwright test tests/e2e/<file>.spec.ts` — one e2e file
+- `npm run build` — production build to `dist/` (Cloudflare Pages: build command `npm run build`, output `dist`)
 
 ## Workflow
 

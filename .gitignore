@@ -23,3 +23,6 @@ Thumbs.db
 
 # client source documents — large, kept locally (transcriptions are committed)
 docs/brief/case-database-2026-09.pdf
+
+# client delivery — source docs and original art, kept locally (the art is copied into src/assets)
+Medici Project/
