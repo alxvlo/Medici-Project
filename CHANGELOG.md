@@ -2,6 +2,37 @@
 
 Dated project log, newest first. Code changes follow Conventional Commits in git; this file records decisions, deliverables, and milestones.
 
+## 2026-10-01
+
+Spec reconciled with `LIST OF CASES.docx` and the client's 2026-09-28 art delivery, then the first
+implementation plan written (`docs/superpowers/plans/2026-10-01-medici-v1-plan.md`). Decisions, all
+Vai's: the client's filenames become the asset ids, superseding the §7.1 naming grammar and making the
+`docs/client/assets/` checklists historical; the first milestone is all twenty levels playable with
+"Awaiting client" shown for missing copy; placeholder values stand in for tolerances, collimation size,
+and wrong positioning options; the radiologist's findings show on the results screen only. Level 1
+is now pulmonary edema, level 6 moves to Upper extremity, and the refresher section has five cases.
+New client questions are in spec §12.
+
+First playable build: all twenty levels, the full loop, the debrief, and the save, on the client's delivered art.
+The level content sheet is reissued for the twenty cases, asking only for what the case list lacks plus
+eight questions from spec §12. Not yet deployed, and the branch is not pushed. Departures from the spec, all small: `motion` and
+`prettier` were not installed (CSS keyframes do the tweens); the docked order card and the results debrief
+scroll inside the stage; `npm run build` runs the unit tests first so a malformed level fails the build;
+and each stage ignores clicks and taps for 300 ms after it appears so a double-click cannot skip it.
+
+## 2026-09-28
+
+Vai confirmed `Medici Project/LIST OF CASES.docx` as the authoritative case database, superseding
+the earlier September PDF and transcription wherever they differ. Project guidance and the design
+spec now record that precedence; the old transcription is marked as an archived reference.
+Detailed reconciliation of the spec's case data and asset mappings remains pending.
+
+Client asset comments recorded in the design spec §7 and §13. Positioning previews must have the
+collimation light field and "+" marker removed. Patient drawings may be reused without matching
+each case's heavier or thinner body habitus if time is limited, but all supplied patient information
+must remain complete. This supersedes the requirement for distinct body-habitus drawings; asset
+editing and the mapping of supplied figures are still pending.
+
 ## 2026-09-10
 
 The client's case database arrived and the game grows from five levels to twenty. Spec revised in place with a revision log entry at §13; the client documents are reissued to match.

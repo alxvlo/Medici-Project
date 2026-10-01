@@ -1,0 +1,48 @@
+{
+  "id": 7,
+  "title": "Tibial stress fracture",
+  "section": "lower-ext",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-young-man",
+    "name": "John D. Reyes",
+    "age": 25,
+    "sex": "Male",
+    "habitus": "Hyposthenic",
+    "dob": "14-March-2001",
+    "patientId": "031401-25763",
+    "admitted": "27-August-2026 0830H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Gradual onset of lower leg pain that worsens with physical activity",
+    "history": "Recreational runner; no history of trauma",
+    "diagnosis": "Suspected Stress Fracture of the Tibia",
+    "exam": "Tibia/Fibula X-ray",
+    "requested": "AP, Lateral",
+    "mission": "Perform AP",
+    "structures": null
+  },
+  "findings": null,
+  "position": {
+    "options": [
+      { "image": "pose-lowerext-apknee", "label": "AP knee", "correct": false, "why": null },
+      { "image": "pose-lowerext-apleg", "label": "AP tibia-fibula", "correct": true, "why": null },
+      { "image": "pose-lowerext-lateralleg", "label": "Lateral tibia-fibula", "correct": false, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 60, "tolerance": 6, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 3.2, "tolerance": 0.3, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate on both sides to skin margins",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "stressfx", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}

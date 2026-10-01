@@ -1,0 +1,48 @@
+{
+  "id": 19,
+  "title": "Cholelithiasis",
+  "section": "refresher",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-old-woman",
+    "name": "Teresa M. Flores",
+    "age": 75,
+    "sex": "Female",
+    "habitus": "Hypersthenic",
+    "dob": "21-February-1951",
+    "patientId": "022151-75346",
+    "admitted": "02-April-2026 1730H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Sudden onset of severe right hypochondrial (right upper quadrant) abdominal pain",
+    "history": "Acute severe pain localized to the right upper abdomen",
+    "diagnosis": "Suspected Acute Cholecystitis / Gallbladder Pathology",
+    "exam": "Abdominal X-ray",
+    "requested": "AP Upright, AP Supine",
+    "mission": "Perform AP Upright",
+    "structures": null
+  },
+  "findings": null,
+  "position": {
+    "options": [
+      { "image": "pose-abd-ap", "label": "AP abdomen", "correct": true, "why": null },
+      { "image": "pose-abd-lateral", "label": "Lateral abdomen", "correct": false, "why": null },
+      { "image": "pose-abd-oblique", "label": "Oblique abdomen", "correct": false, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 80, "tolerance": 8, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 25, "tolerance": 2.5, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate on four sides to anatomy of interest",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "chole", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}

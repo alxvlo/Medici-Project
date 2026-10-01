@@ -1,0 +1,48 @@
+{
+  "id": 5,
+  "title": "Colles' fracture",
+  "section": "upper-ext",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-young-woman",
+    "name": "Angela M. Reyes",
+    "age": 20,
+    "sex": "Female",
+    "habitus": "Hyposthenic",
+    "dob": "06-May-2006",
+    "patientId": "050606-21876",
+    "admitted": "31-Aug-2026 1030H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Left wrist pain, swelling, and difficulty moving the wrist after falling onto an outstretched hand",
+    "history": null,
+    "diagnosis": "Suspected Colles' fracture of the distal radius",
+    "exam": "Left wrist X-ray",
+    "requested": "PA, Lateral, Oblique",
+    "mission": "Perform PA",
+    "structures": null
+  },
+  "findings": "There is an impacted, dorsally displaced and angulated greenstick fracture involving the distal radius with possible fracture extension to the articular surface. There is associated overlying soft tissue swelling and deformity of the wrist. Further, there is a minimally displaced avulsion fracture of ulnar styloid process. The alignment of the carpal arches is within normal limits.",
+  "position": {
+    "options": [
+      { "image": "pose-wrist-lateral", "label": "Lateral wrist", "correct": false, "why": null },
+      { "image": "pose-wrist-oblique", "label": "Oblique wrist", "correct": false, "why": null },
+      { "image": "pose-wrist-pa", "label": "PA wrist", "correct": true, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 55, "tolerance": 6, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 2.5, "tolerance": 0.3, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate to wrist on all four sides; include distal radius and ulna and midmetacarpal area.",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "collesfx", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}

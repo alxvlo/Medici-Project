@@ -1,0 +1,48 @@
+{
+  "id": 6,
+  "title": "Supracondylar fracture",
+  "section": "upper-ext",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-child-boy",
+    "name": "Miguel A. Santos",
+    "age": 9,
+    "sex": "Male",
+    "habitus": "Hyposthenic",
+    "dob": "22-November-2016",
+    "patientId": "112216-30754",
+    "admitted": "31-Aug-2026 1145H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Left elbow pain and swelling with limited movement after falling from a playground",
+    "history": null,
+    "diagnosis": "Suspected supracondylar fracture of the humerus",
+    "exam": "Left elbow X-ray",
+    "requested": "AP, Lateral, Oblique",
+    "mission": "Perform Lateral",
+    "structures": null
+  },
+  "findings": "There is a displaced supracondylar of the left distal humerus, with raised anterior and posterior fat pad- elbow joint effusion",
+  "position": {
+    "options": [
+      { "image": "pose-elbow-ap", "label": "AP elbow", "correct": false, "why": null },
+      { "image": "pose-elbow-apoblique", "label": "AP oblique elbow", "correct": false, "why": null },
+      { "image": "pose-elbow-lateral", "label": "Lateral elbow", "correct": true, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 55, "tolerance": 6, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 1.6, "tolerance": 0.2, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate on four sides to area of interest",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "elbowfx", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}

@@ -1,0 +1,48 @@
+{
+  "id": 10,
+  "title": "Foreign body (button battery)",
+  "section": "abdomen",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-child-girl",
+    "name": "Sofia M. Anderson",
+    "age": 5,
+    "sex": "Female",
+    "habitus": "Sthenic",
+    "dob": "22-June-2021",
+    "patientId": "062221-51739",
+    "admitted": "12-June-2026 1430H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Suspected ingestion of a foreign body (button battery) within the last hour",
+    "history": "Patient is asymptomatic; suspected accidental ingestion of a button battery",
+    "diagnosis": "Suspected Foreign Body Ingestion (Button Battery)",
+    "exam": "Foreign Body X-ray Series",
+    "requested": "AP Upright, AP Supine, Cross Table Lateral",
+    "mission": "Perform AP Supine",
+    "structures": "Include the entire gastrointestinal tract from the nasopharynx to the pubic symphysis."
+  },
+  "findings": null,
+  "position": {
+    "options": [
+      { "image": "pose-abd-ap", "label": "AP abdomen", "correct": true, "why": null },
+      { "image": "pose-abd-lateral", "label": "Lateral abdomen", "correct": false, "why": null },
+      { "image": "pose-abd-oblique", "label": "Oblique abdomen", "correct": false, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 70, "tolerance": 7, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 4, "tolerance": 0.4, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate on four sides to anatomy of interest",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "fbi", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}

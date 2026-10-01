@@ -1,0 +1,48 @@
+{
+  "id": 20,
+  "title": "Skull fracture",
+  "section": "refresher",
+  "draft": true,
+  "patient": {
+    "sprite": "patient-young-man",
+    "name": "Michael R. Aquino",
+    "age": 43,
+    "sex": "Male",
+    "habitus": "Asthenic",
+    "dob": "09-April-1983",
+    "patientId": "040983-43725",
+    "admitted": "02-September-2026 1600H",
+    "line": null
+  },
+  "order": {
+    "complaint": "Head pain and swelling on the right side of the head after being punched at a pub",
+    "history": "Recent blunt head trauma due to physical assault; localized swelling over the right side of the head",
+    "diagnosis": "Suspected Skull Fracture",
+    "exam": "Skull X-ray",
+    "requested": "AP Axial (Towne), Lateral, PA Axial (Caldwell), PA",
+    "mission": "Perform PA",
+    "structures": null
+  },
+  "findings": null,
+  "position": {
+    "options": [
+      { "image": "pose-skull-ap", "label": "AP skull", "correct": false, "why": null },
+      { "image": "pose-skull-lateral", "label": "Lateral skull", "correct": false, "why": null },
+      { "image": "pose-skull-pa", "label": "PA skull", "correct": true, "why": null }
+    ]
+  },
+  "technique": {
+    "kvp": { "target": 75, "tolerance": 8, "min": 40, "max": 150, "step": 1 },
+    "mas": { "target": 16, "tolerance": 1.6, "min": 0.5, "max": 50, "step": 0.1 },
+    "note": null,
+    "wrongKvp": null,
+    "wrongMas": null
+  },
+  "collimate": {
+    "instruction": "Collimate on four sides to anatomy of interest",
+    "target": { "w": 60, "h": 70 },
+    "tolerance": 5
+  },
+  "films": { "slug": "skullfx", "underNote": null, "overNote": null },
+  "timers": { "position": 60, "technique": 45 }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "medici",
+  "version": "1.0.0",
+  "description": "A browser-based learning activity in which the student is a radiologic technologist. Twenty levels, one patient and one injury each, walking through the real X-ray workflow: read the order, position the patient, set kVp/mAs, collimate, take the exposure, read the film. One attempt per decision, no retries, and a debrief at the end of every case. Built for a client (a radiography educator) who owns the medical content and the art.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "dev": "vite",
+    "build": "tsc --noEmit && vitest run && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "e2e": "playwright test",
+    "qa": "npm run typecheck && npm run lint && npm run test && npm run e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alxvlo/Medici-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/alxvlo/Medici-Project/issues"
+  },
+  "homepage": "https://github.com/alxvlo/Medici-Project#readme",
+  "private": true,
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "eslint": "^10.11.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.12.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.0",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.3"
+  }
+}

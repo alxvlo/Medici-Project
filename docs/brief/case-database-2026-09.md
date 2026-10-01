@@ -1,5 +1,10 @@
 # Case Database — Transcription
 
+**Archived reference — superseded 2026-09-28:** Vai confirmed `Medici Project/LIST OF CASES.docx`
+as the current medical source. It replaces this transcription and its source PDF wherever they
+differ. Retained here for history; the source and verification notes below describe the old version
+only and must not govern new implementation.
+
 **Source:** `case-database-2026-09.pdf` (the client's "LIST OF CASES", received 7 September 2026)
 **Transcribed:** 10 September 2026 · **Status:** verbatim, not edited for style or medicine
 
