@@ -187,8 +187,8 @@ Conventions:
 - **Options are listed alphabetically by image id**, and that is the order they are shown in. It puts
   the correct pose in a different place from level to level without any shuffling code.
 - **`tolerance` is inclusive** and compared in whole dial steps, not raw floats:
-  `round(|value − target| / step) ≤ round(tolerance / step)`. With a 0.1 mAs step, 2.5 − 2.2 is
-  0.30000000000000027 in floating point; a naive `≤ 0.3` would call a correct value wrong.
+  `round(|value − target| / step) ≤ round(tolerance / step)`. With a 0.1 mAs step, level 6's
+  |1.4 − 1.6| is 0.20000000000000018 in floating point; a naive `≤ 0.2` would call a correct value wrong.
 - `patient.sprite` is chosen from the eight delivered figures by age and sex: child under 13, teen
   13–19, young 20–59, old 60 and over. `teen-girl` has no case yet. Body habitus stays on the order card
   word for word — the client accepted that the drawings need not show it (§7, 2026-09-28).
@@ -336,7 +336,7 @@ Criteria are written before the code they test. The gate is `npm run qa` = typec
 
 **Unit (vitest, pure functions):**
 - `stars(mistakes)` returns 3 / 2 / 2 / 1 / 1 for 0 / 1 / 2 / 3 / 4.
-- `checkTechnique(value, spec)` is true at `target ± tolerance` inclusive, false one step outside — including on the 0.1 mAs step, where `2.2` against `2.5 ± 0.3` is correct and `2.1` is not.
+- `checkTechnique(value, spec)` is true at `target ± tolerance` inclusive, false one step outside — including on the 0.1 mAs step, where `1.4` against level 6's `1.6 ± 0.2` is correct (a naive `≤` comparison rejects it) and `1.3` is not.
 - `filmFor(kvp, mas, spec)` returns `good` when both are in tolerance; `under` when either is below; `over` when neither is below and at least one is above; and **`under` when kVp is below tolerance while mAs is above** — the tie-break in §4.4.
 - `filmFor` depends on nothing but kVp and mAs: the same pair returns the same film for every position and collimation outcome.
 - `checkCollimation({w,h}, spec)` requires both dimensions within tolerance.
@@ -452,6 +452,11 @@ this changes data and assets only.
    the dials as they stand.
 7. **First milestone:** all twenty levels playable with the real art, shippable to a preview URL for the
    client to review.
+
+*Correction, 2026-10-01 (final review):* the float example in §5 and §9 was wrong. In JavaScript
+2.5 − 2.2 is 0.2999999999999998, so that case never failed a naive comparison. The discriminating case
+from shipped data is level 6's mAs, 1.4 against 1.6 ± 0.2 (|1.4 − 1.6| is 0.20000000000000018); both
+sections now name it, and the unit test keeps the 2.2 case alongside.
 
 ### 2026-09-28 — new case database confirmed as authoritative
 

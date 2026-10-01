@@ -18,7 +18,7 @@ The level content sheet is reissued for the twenty cases, asking only for what t
 eight questions from spec §12. Not yet deployed, and the branch is not pushed. Departures from the spec, all small: `motion` and
 `prettier` were not installed (CSS keyframes do the tweens); the docked order card and the results debrief
 scroll inside the stage; `npm run build` runs the unit tests first so a malformed level fails the build;
-and each stage ignores input for 300 ms after it appears so a double-click cannot skip it.
+and each stage ignores clicks and taps for 300 ms after it appears so a double-click cannot skip it.
 
 ## 2026-09-28
 

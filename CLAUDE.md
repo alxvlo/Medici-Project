@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Medici — a browser game where the player is a radiologic technologist. Twenty levels, one patient/injury each, through the real X-ray workflow (order → assess → position → kVp/mAs → collimate → exposure QTE). Client project: the client owns the medical content and the art.
+Medici — a browser game where the player is a radiologic technologist. Twenty levels, one patient/injury each, through the real X-ray workflow (intake → order → position → kVp/mAs → collimate → exposure → debrief). Client project: the client owns the medical content and the art.
 
 **Source of truth:** `docs/superpowers/specs/2026-08-27-medici-radtech-game-design.md`. Where the client's original brief (`docs/brief/`) disagrees with the spec, the spec wins. Do not re-litigate decisions recorded in spec §2.
 
@@ -41,8 +41,8 @@ Spec → plan → implement, using the superpowers skills (`brainstorming`, `wri
 
 ## Architecture (target, spec §4)
 
-- `src/app/` — `Stage`, screen state machine (`title → levelSelect → level(n) → results(n)`), one `useReducer` store, `save.ts` (single `localStorage` key `medici.save.v1`, versioned).
-- `src/stages/` — one component per level stage (Intake, Order, Position, Technique, Collimate, Expose, Result). Each takes `(level, onComplete(result))` and knows nothing about its siblings.
+- `src/app/` — `Stage`, screen state machine (`title → levelSelect → level(n) → results(n)`), one `useReducer` store, `save.ts` (single `localStorage` key `medici.save.v1`, versioned). The title, level select, settings, and Results screens live in `src/screens/`.
+- `src/stages/` — one component per level stage (Intake, Order, Position, Technique, Collimate, Expose). Each takes `(level, onComplete(result))` and knows nothing about its siblings.
 - `src/data/levels/*.json` + `schema.ts` — all level content is data, validated by zod at build and load. Image fields are asset ids, never paths.
 - `src/assets.ts` — the asset id → URL manifest, built from `src/assets/` by `import.meta.glob`; an unknown id renders a labelled placeholder box.
 - Scoring/feedback rules (spec §6): mistakes only from position (max 1), kVp, mAs, and collimation (max 1, however many attempts); timer expiry folds into its own stage and never double-counts; `expose` cannot be failed; stars 0→3, 1–2→2, 3+→1; no fail state.

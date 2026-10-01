@@ -29,9 +29,15 @@ describe('checkTechnique', () => {
     expect(checkTechnique(111, kvp)).toBe(false)
     expect(checkTechnique(139, kvp)).toBe(false)
   })
-  it('accepts the inclusive mAs edges despite floating point (2.5 - 2.2 = 0.30000000000000027)', () => {
+  it('accepts the inclusive mAs edges on a 0.1 step (2.2 and 2.8 against 2.5 +/- 0.3)', () => {
     expect(checkTechnique(2.2, mas)).toBe(true)
     expect(checkTechnique(2.8, mas)).toBe(true)
+  })
+  // Level 6's real dial. In JS |1.4 - 1.6| is 0.20000000000000018, so a naive `<= 0.2` calls the inclusive edge wrong.
+  it('accepts the inclusive mAs edge despite floating point (1.4 against 1.6 +/- 0.2, level 6)', () => {
+    const l6 = { target: 1.6, tolerance: 0.2, step: 0.1 }
+    expect(checkTechnique(1.4, l6)).toBe(true)
+    expect(checkTechnique(1.3, l6)).toBe(false)
   })
   it('rejects one step outside mAs', () => {
     expect(checkTechnique(2.1, mas)).toBe(false)

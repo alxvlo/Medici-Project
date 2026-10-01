@@ -11,7 +11,7 @@ export type ScoredLevel = {
 
 type Band = 'below' | 'in' | 'above'
 
-/** Compared in whole dial steps: with a 0.1 step, 2.5 - 2.2 is 0.30000000000000027 in floating point. */
+/** Compared in whole dial steps: with a 0.1 step, |1.4 - 1.6| is 0.20000000000000018 in floating point, so a naive `<= 0.2` rejects level 6's edge. */
 function band(value: number, d: DialSpec): Band {
   const off = Math.round((value - d.target) / d.step)
   const tol = Math.round(d.tolerance / d.step)

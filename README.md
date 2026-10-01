@@ -13,7 +13,7 @@ A browser-based learning activity in which the student is a radiologic technolog
 - Built from `docs/superpowers/plans/2026-10-01-medici-v1-plan.md`. `npm run qa` is the gate; `npm run dev` to play
 - Waiting on the client: `docs/client/level-content-sheet.md` (reissued 2026-10-01 for the twenty cases)
 - Next: Cloudflare Pages preview for the client (needs Vai to connect the GitHub repo)
-- Where the build departs from the spec: `motion` and `prettier` are not installed (CSS keyframes do the tweens); the docked order card and the results debrief scroll inside the stage; `npm run build` runs the unit tests first, so a malformed level fails the build; and each stage ignores input for 300 ms after it appears, so a double-click cannot skip one
+- Where the build departs from the spec: `motion` and `prettier` are not installed (CSS keyframes do the tweens); the docked order card and the results debrief scroll inside the stage; `npm run build` runs the unit tests first, so a malformed level fails the build; and each stage ignores clicks and taps for 300 ms after it appears, so a double-click cannot skip one
 - Engine decided: Vite + React + TypeScript, DOM-first (see spec §2 and `docs/research/`)
 
 See `CHANGELOG.md` for the dated log.
