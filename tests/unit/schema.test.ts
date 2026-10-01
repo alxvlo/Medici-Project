@@ -14,6 +14,7 @@ describe('LevelSchema', () => {
   it('accepts a shipped level', () => expect(accepts(() => {})).toBe(true))
   it('rejects two correct positions', () => expect(accepts((l) => { l.position.options[0].correct = true })).toBe(false))
   it('rejects no correct position', () => expect(accepts((l) => { l.position.options[2].correct = false })).toBe(false))
+  it('rejects a position option whose image is not a pose', () => expect(accepts((l) => { l.position.options[0].image = 'xray-ptb-good' })).toBe(false))
   it('rejects a negative tolerance', () => expect(accepts((l) => { l.technique.kvp.tolerance = -1 })).toBe(false))
   it('rejects a target outside its dial', () => expect(accepts((l) => { l.technique.mas.target = 60 })).toBe(false))
   it('rejects the removed assess block', () => expect(accepts((l) => { l.assess = {} })).toBe(false))

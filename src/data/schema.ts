@@ -7,7 +7,7 @@ const Dial = z
   .strictObject({ target: z.number(), tolerance: z.number().nonnegative(), min: z.number(), max: z.number(), step: z.number().positive() })
   .refine((d) => d.min <= d.target && d.target <= d.max, { message: 'target outside dial range' })
 
-const Option = z.strictObject({ image: text, label: text, correct: z.boolean(), why: awaiting })
+const Option = z.strictObject({ image: text.startsWith('pose-'), label: text, correct: z.boolean(), why: awaiting })
 
 /** Strict objects throughout, so a level still carrying a retired block (assess, position.hint, expose) fails. */
 export const LevelSchema = z.strictObject({

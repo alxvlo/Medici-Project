@@ -88,7 +88,7 @@ button:active:not(:disabled) { translate: 0 1px; }
 .order-card dd { margin: 0; white-space: pre-line; }
 .order-card.docked {
   left: 8px; top: 8px; width: 236px; max-height: 624px; translate: none; padding: 14px; z-index: 5;
-  overflow-y: auto; font-size: 10.5px; animation: none; touch-action: pan-y;
+  overflow-y: auto; font-size: 14px; animation: none; touch-action: pan-y;
 }
 .order-card.docked dl { grid-template-columns: 1fr; gap: 0; }
 .order-card.docked dd { margin-bottom: 4px; }

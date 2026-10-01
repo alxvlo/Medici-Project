@@ -95,3 +95,25 @@ test('on touch, a quick tap chooses the pose', async ({ page, isMobile }) => {
   await poseButton(page, 'pose-chest-pa').tap()
   await expect(stageOf(page)).toHaveAttribute('data-stage', 'technique')
 })
+
+test('the docked order card is readable: at least 14px', async ({ page }) => {
+  await startLevel(page, 1)
+  await throughOrder(page)
+  const card = page.getByRole('complementary', { name: "Doctor's order" })
+  const size = await card.evaluate((el) => parseFloat(getComputedStyle(el).fontSize))
+  expect(size).toBeGreaterThanOrEqual(14)
+})
+
+test('on touch, a cancelled press never shows the preview', async ({ page, isMobile }) => {
+  test.skip(!isMobile, 'touch gesture')
+  await page.clock.install()
+  await startLevel(page, 1)
+  await throughOrder(page)
+  await page.clock.pauseAt(await page.evaluate(() => Date.now()) + 1000)
+  const pose = poseButton(page, 'pose-chest-pa')
+  await pose.dispatchEvent('pointerdown', { pointerType: 'touch' })
+  await page.clock.runFor(200)
+  await pose.dispatchEvent('pointercancel', { pointerType: 'touch' }) // the browser took the gesture (a scroll, say)
+  await page.clock.runFor(500)
+  await expect(page.getByTestId('pose-preview')).toHaveCount(0)
+})

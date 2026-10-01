@@ -54,6 +54,11 @@ export function Position({ level, onComplete }: { level: Level; onComplete: (pos
               window.clearTimeout(press.current.timer)
               if (press.current.long) setPreview(null)
             }}
+            onPointerCancel={() => { // the browser took the gesture (a scroll): drop the press, never commit
+              window.clearTimeout(press.current.timer)
+              press.current.long = false
+              setPreview(null)
+            }}
             onClick={() => {
               if (press.current.long) { press.current.long = false; return } // the end of a long-press, not a choice
               commit(o.image)
