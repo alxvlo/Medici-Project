@@ -1,1310 +1,476 @@
-# Radtech Simulator — Level Content Sheet
+# Radtech Simulator: Level Content Sheet
 
-**Date:** 10 September 2026 · **Replaces** the 1 September version entirely
-**For:** Medici
-**From:** Vai
+Updated 1 October 2026, for the twenty cases in your LIST OF CASES.
 
----
+The game is now built from your case list, and every case is playable. Your list does not cover everything the game needs, though, so for now it uses stand-in values, and wherever a sentence is missing the student sees the words "Awaiting client". This sheet collects only what is still missing. Nothing you already wrote is asked for again.
 
-## What changed, and why this is much shorter
+Each level has two parts. **Please check** lists the stand-in values: answer yes if one is right, or write the correct value. **Please write** asks for the sentences the student reads. Most are read in the review at the end of the case, after the student has seen their X-ray, so write them as explanations rather than hints.
 
-The last version of this sheet asked you to fill in five whole cases from scratch — patient, order,
-pathology, exposure values, everything. Your case database replaced all of that. You have already
-written twenty cases, and they are better than the drafts I made, so the drafts are gone.
+One thing applies to every level: the kVp dial runs from 40 to 150 and the mAs dial from 0.5 to 50, the same on every case, as on a real console. Tell us if you would like different limits.
 
-Everything you wrote is already in the game's plan: the patients, the complaints, the histories, the
-provisional diagnoses, the doctor's orders, the projections, the kVp, the mAs, and the collimation
-instructions. **You do not need to write any of that again.** Each level below shows it back to you
-so you can see what I have, and so you can correct it if I have mistranscribed something.
+## Level 1: Pulmonary edema
 
-What is left is the handful of things a database of real cases would have no reason to contain, but a
-game needs. There are six, and two of them are quick.
+Fernando R. Castillo, 70. Perform PA.
 
-## The six things I still need
+**Please check**
 
-**1. Two wrong positions per level, and one sentence on why each is wrong.** This is the big one, and
-it is the only thing genuinely blocking a playable level. The game shows the student three positions
-and asks them to pick. You have given me the right one for every level. I need two plausible wrong
-ones for each, and a single sentence for each that a student would learn from — the sentence appears
-the moment they choose wrongly. For example, for a chest: *"AP supine magnifies the heart and blurs
-the lung bases."* Wrong options that are obviously silly teach nothing, so the useful ones are the
-mistakes a real student actually makes.
+- Wrong positions offered: AP chest and Lateral chest. The right one is PA chest. Right? Yes / No, use instead:
+- kVp: 125, and anything from 112 to 138 counts as correct. Right? Yes / No, use instead:
+- mAs: 4, and anything from 3.6 to 4.4 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-**2. How far off can they be?** You have given exact values, and some as a range. I need to know
-whether a range like *55 to 65 kVp* means anything in that band is correct, or whether it means you
-were unsure and one value is right. I also need the lowest and highest the dial should let them go —
-which is not the same as the correct answer, it is the span of the equipment.
+**Please write**
 
-**3. Collimation as a size.** You have written this in words, like *collimate on four sides to the
-area of the lung fields*. The game draws a rectangle of light on screen, so it needs a size in
-centimetres or inches. Rough is fine.
+- What the patient says when they walk in:
+- Why AP chest is the wrong position:
+- Why Lateral chest is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-**4. What the bad films fail to show.** When a student sets the exposure wrongly they get an
-underexposed or an overexposed film, and at the end of the case the game explains what went wrong.
-One sentence for each, per level.
+## Level 2: Pneumothorax
 
-**5. What the patient says when they walk in.** One line, in their own voice. The complaint you wrote
-is the clinical version; this is how the person would actually say it.
+Miguel A. Zamora, 20. Perform PA.
 
-**6. The structures that must be visible.** You wrote this for the button battery and the kidney
-stones, marked *SS*. I need the same for the other eighteen.
+**Please check**
 
-## Two things I need you to settle
+- Wrong positions offered: AP chest and Lateral chest. The right one is PA chest. Right? Yes / No, use instead:
+- kVp: 115, and anything from 103 to 127 counts as correct. Right? Yes / No, use instead:
+- mAs: 2.5, and anything from 2.2 to 2.8 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-While transcribing your database I found two places where it disagrees with itself. I have not
-guessed, because guessing about a projection is exactly the kind of thing that teaches a student
-something false.
+**Please write**
 
-- **Level 15 (Paget's disease).** The order says *AP Skull*. The positioning column says *PA
-  Caldwell*. Which is it?
-- **Level 19 (Cholelithiasis).** The order says *AP Erect*. The positioning column says *AP Abdomen*,
-  without saying erect. Which is it?
+- What the patient says when they walk in:
+- Why AP chest is the wrong position:
+- Why Lateral chest is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-## About the X-ray films
+## Level 3: Scimitar syndrome (PAPVR)
 
-You have confirmed you will provide the overexposed and underexposed films as well as the correct
-ones. Thank you — that matters more than it might look. Three films per level across twenty levels is
-sixty images, and it is the one part of this game I will not generate or fake under any circumstances,
-because an invented radiograph teaches a student to recognise a finding that does not exist. Until a
-film arrives the game shows a labelled grey box, so nothing here blocks me from building.
+Patricia A. Villanueva, 25. Perform PA.
 
-Your database gives a working reference address for the correct film on eleven of the twenty. Nine
-do not have one: levels 7, 8, 9, 13, 17, and 18 have nothing at all; levels 10 and 11 have a caption
-but no link; and level 12's link text is there while the address behind it did not survive.
+**Please check**
 
-## How to fill this in
+- Wrong positions offered: AP chest and Lateral chest. The right one is PA chest. Right? Yes / No, use instead:
+- kVp: 120, and anything from 108 to 132 counts as correct. Right? Yes / No, use instead:
+- mAs: 3, and anything from 2.7 to 3.3 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-Write directly under each heading. Rough notes are fine — I would rather have your shorthand than
-wait for polished sentences. If a level is wrong for what you want to teach, say so and we will
-replace the case.
+**Please write**
 
----
+- What the patient says when they walk in:
+- Why AP chest is the wrong position:
+- Why Lateral chest is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-## Level 1 — Pleural effusion
+## Level 4: Boxer's fracture
 
-*Chest section*
+Samuel R. Villanueva, 40. Perform PA.
 
-### What you already gave me
+**Please check**
 
-| | |
-|---|---|
-| Patient | Fernando R. Castillo, 70/Male, Hypersthenic |
-| Doctor's order | Chest X-ray |
-| Requested projection | PA |
-| Correct position | PA Chest |
-| Correct kVp | 125 kVp |
-| Correct mAs | 3 mAs |
-| Collimation | Collimate on four sides to area of lung fields |
+- Wrong positions offered: AP hand and Lateral hand. The right one is PA hand. Right? Yes / No, use instead:
+- kVp: 60, and anything from 54 to 66 counts as correct. Right? Yes / No, use instead:
+- mAs: 4, and anything from 3.6 to 4.4 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-Correct this if I have it wrong.
+**Please write**
 
-### 1. Two wrong positions
+- What the patient says when they walk in:
+- Why AP hand is the wrong position:
+- Why Lateral hand is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
+## Level 5: Colles' fracture
 
-### 2. How far off can they be?
+Angela M. Reyes, 20. Perform PA.
 
-| | |
-|---|---|
-| Is `125 kVp` a band, or one right answer? | |
-| Is `3 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
+**Please check**
 
-### 3. Collimation size
+- Wrong positions offered: Lateral wrist and Oblique wrist. The right one is PA wrist. Right? Yes / No, use instead:
+- kVp: 55, and anything from 49 to 61 counts as correct. Right? Yes / No, use instead:
+- mAs: 2.5, and anything from 2.2 to 2.8 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Field size in cm or inches | |
+**Please write**
 
-### 4. What the bad films fail to show
+- What the patient says when they walk in:
+- Why Lateral wrist is the wrong position:
+- Why Oblique wrist is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
+## Level 6: Supracondylar fracture
 
-### 5. What the patient says walking in
+Miguel A. Santos, 9. Perform Lateral.
 
-| | |
-|---|---|
-| Their line | |
+**Please check**
 
-### 6. Structures that must be visible
+- Wrong positions offered: AP elbow and AP oblique elbow. The right one is Lateral elbow. Right? Yes / No, use instead:
+- kVp: 55, and anything from 49 to 61 counts as correct. Right? Yes / No, use instead:
+- mAs: 1.6, and anything from 1.4 to 1.8 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Must be on the film | |
+**Please write**
 
----
+- What the patient says when they walk in:
+- Why AP elbow is the wrong position:
+- Why AP oblique elbow is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-## Level 2 — Pneumothorax
+## Level 7: Tibial stress fracture
 
-*Chest section*
+John D. Reyes, 25. Perform AP.
 
-### What you already gave me
+**Please check**
 
-| | |
-|---|---|
-| Patient | Miguel A. Zamora, 20/Male, Asthenic |
-| Doctor's order | Chest X-ray |
-| Requested projection | PA |
-| Correct position | PA Chest |
-| Correct kVp | 115 kVp |
-| Correct mAs | 1 mAs |
-| Collimation | Collimate on four sides to area of lung fields |
+- Wrong positions offered: AP knee and Lateral tibia-fibula. The right one is AP tibia-fibula. Right? Yes / No, use instead:
+- kVp: 60, and anything from 54 to 66 counts as correct. Right? Yes / No, use instead:
+- mAs: 3.2, and anything from 2.9 to 3.5 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-Correct this if I have it wrong.
+**Please write**
 
-### 1. Two wrong positions
+- What the patient says when they walk in:
+- Why AP knee is the wrong position:
+- Why Lateral tibia-fibula is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
+## Level 8: Oblique fibular shaft fracture
 
-### 2. How far off can they be?
+Maria L. Santos, 32. Perform Lateral.
 
-| | |
-|---|---|
-| Is `115 kVp` a band, or one right answer? | |
-| Is `1 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
+**Please check**
 
-### 3. Collimation size
+- Wrong positions offered: AP tibia-fibula and Lateral knee. The right one is Lateral tibia-fibula. Right? Yes / No, use instead:
+- kVp: 62, and anything from 56 to 68 counts as correct. Right? Yes / No, use instead:
+- mAs: 4, and anything from 3.6 to 4.4 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Field size in cm or inches | |
+**Please write**
 
-### 4. What the bad films fail to show
+- What the patient says when they walk in:
+- Why AP tibia-fibula is the wrong position:
+- Why Lateral knee is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
+## Level 9: Comminuted tibia-fibula fracture
 
-### 5. What the patient says walking in
+Roberto M. Garcia, 45. Perform AP.
 
-| | |
-|---|---|
-| Their line | |
+**Please check**
 
-### 6. Structures that must be visible
+- Wrong positions offered: AP knee and Lateral tibia-fibula. The right one is AP tibia-fibula. Right? Yes / No, use instead:
+- kVp: 65, and anything from 58 to 72 counts as correct. Right? Yes / No, use instead:
+- mAs: 6.3, and anything from 5.7 to 6.9 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Must be on the film | |
+**Please write**
 
----
+- What the patient says when they walk in:
+- Why AP knee is the wrong position:
+- Why Lateral tibia-fibula is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-## Level 3 — Scimitar syndrome
+## Level 10: Foreign body (button battery)
 
-*Chest section*
+Sofia M. Anderson, 5. Perform AP Supine.
 
-### What you already gave me
+**Please check**
 
-| | |
-|---|---|
-| Patient | Patricia A. Villanueva, 25/Female, Sthenic |
-| Doctor's order | Chest X-ray |
-| Requested projection | PA |
-| Correct position | PA Chest |
-| Correct kVp | 120 kVp |
-| Correct mAs | 2 mAs |
-| Collimation | Collimate on four sides to area of lung fields |
+- Wrong positions offered: Lateral abdomen and Oblique abdomen. The right one is AP abdomen. Right? Yes / No, use instead:
+- kVp: 70, and anything from 63 to 77 counts as correct. Right? Yes / No, use instead:
+- mAs: 4, and anything from 3.6 to 4.4 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-Correct this if I have it wrong.
+**Please write**
 
-### 1. Two wrong positions
+- What the patient says when they walk in:
+- Why Lateral abdomen is the wrong position:
+- Why Oblique abdomen is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
 
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
+## Level 11: Renal calculi
 
-### 2. How far off can they be?
+John C. Hopkins, 25. Perform AP Supine.
 
-| | |
-|---|---|
-| Is `120 kVp` a band, or one right answer? | |
-| Is `2 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
+**Please check**
 
-### 3. Collimation size
+- Wrong positions offered: Lateral abdomen and Oblique abdomen. The right one is AP abdomen. Right? Yes / No, use instead:
+- kVp: 75, and anything from 67 to 83 counts as correct. Right? Yes / No, use instead:
+- mAs: 16, and anything from 14.4 to 17.6 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Field size in cm or inches | |
+**Please write**
 
-### 4. What the bad films fail to show
+- What the patient says when they walk in:
+- Why Lateral abdomen is the wrong position:
+- Why Oblique abdomen is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
 
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
+## Level 12: Sigmoid volvulus
 
-### 5. What the patient says walking in
+Antonio R. Mendoza, 65. Perform AP Supine.
 
-| | |
-|---|---|
-| Their line | |
+**Please check**
 
-### 6. Structures that must be visible
+- Wrong positions offered: Lateral abdomen and Oblique abdomen. The right one is AP abdomen. Right? Yes / No, use instead:
+- kVp: 75, and anything from 67 to 83 counts as correct. Right? Yes / No, use instead:
+- mAs: 14, and anything from 12.6 to 15.4 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Must be on the film | |
+**Please write**
 
----
+- What the patient says when they walk in:
+- Why Lateral abdomen is the wrong position:
+- Why Oblique abdomen is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
 
-## Level 4 — Boxer's fracture
+## Level 13: Mild scalp contusion
 
-*Upper extremity section*
+Juan D. Cruz, 22. Perform Lateral.
 
-### What you already gave me
+**Please check**
 
-| | |
-|---|---|
-| Patient | Samuel R. Villanueva, 40/Male, Hypersthenic |
-| Doctor's order | Right hand X-ray |
-| Requested projection | PA |
-| Correct position | PA Hand |
-| Correct kVp | 60 kVp |
-| Correct mAs | 2 mAs |
-| Collimation | Collimate on four sides to outer margins of hand and wrist. |
+- Wrong positions offered: AP skull and PA skull. The right one is Lateral skull. Right? Yes / No, use instead:
+- kVp: 75, and anything from 67 to 83 counts as correct. Right? Yes / No, use instead:
+- mAs: 16, and anything from 14.4 to 17.6 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-Correct this if I have it wrong.
+**Please write**
 
-### 1. Two wrong positions
+- What the patient says when they walk in:
+- Why AP skull is the wrong position:
+- Why PA skull is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
+## Level 14: Nasal bone fracture
 
-### 2. How far off can they be?
+Daniel J. Cruz, 20. Perform Right Lateral.
 
-| | |
-|---|---|
-| Is `60 kVp` a band, or one right answer? | |
-| Is `2 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
+**Please check**
 
-### 3. Collimation size
+- Wrong positions offered: AP skull and PA skull. The right one is Lateral skull. Right? Yes / No, use instead:
+- kVp: 70, and anything from 63 to 77 counts as correct. Right? Yes / No, use instead:
+- mAs: 12.5, and anything from 11.2 to 13.8 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Field size in cm or inches | |
+**Please write**
 
-### 4. What the bad films fail to show
+- What the patient says when they walk in:
+- Why AP skull is the wrong position:
+- Why PA skull is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
+## Level 15: Paget's disease
 
-### 5. What the patient says walking in
+Elena P. Navarro, 80. Perform AP.
 
-| | |
-|---|---|
-| Their line | |
+**Please check**
 
-### 6. Structures that must be visible
+- Wrong positions offered: Lateral skull and PA skull. The right one is AP skull. Right? Yes / No, use instead:
+- kVp: 80, and anything from 72 to 88 counts as correct. Right? Yes / No, use instead:
+- mAs: 20, and anything from 18 to 22 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Must be on the film | |
+**Please write**
 
----
+- What the patient says when they walk in:
+- Why Lateral skull is the wrong position:
+- Why PA skull is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-## Level 5 — Colles' fracture
+## Level 16: Pulmonary tuberculosis
 
-*Upper extremity section*
+Carlos B. Mendoza, 50. Perform PA.
 
-### What you already gave me
+**Please check**
 
-| | |
-|---|---|
-| Patient | Angela M. Reyes, 20/Female, Hyposthenic |
-| Doctor's order | Left wrist X-ray |
-| Requested projection | PA |
-| Correct position | PA Wrist |
-| Correct kVp | 55 kVp |
-| Correct mAs | 2 mAs |
-| Collimation | Collimate to wrist on all four sides; include distal radius and ulna and midmetacarpal area. |
+- Wrong positions offered: AP chest and Lateral chest. The right one is PA chest. Right? Yes / No, use instead:
+- kVp: 115, and anything from 103 to 127 counts as correct. Right? Yes / No, use instead:
+- mAs: 2.5, and anything from 2.2 to 2.8 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-Correct this if I have it wrong.
+**Please write**
 
-### 1. Two wrong positions
+- What the patient says when they walk in:
+- Why AP chest is the wrong position:
+- Why Lateral chest is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
+## Level 17: Osteochondroma
 
-### 2. How far off can they be?
+Daniel M. Reyes, 18. Perform AP.
 
-| | |
-|---|---|
-| Is `55 kVp` a band, or one right answer? | |
-| Is `2 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
+**Please check**
 
-### 3. Collimation size
+- Wrong positions offered: Lateral humerus and Transthoracic humerus. The right one is AP humerus. Right? Yes / No, use instead:
+- kVp: 60, and anything from 54 to 66 counts as correct. Right? Yes / No, use instead:
+- mAs: 3.2, and anything from 2.9 to 3.5 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Field size in cm or inches | |
+**Please write**
 
-### 4. What the bad films fail to show
+- What the patient says when they walk in:
+- Why Lateral humerus is the wrong position:
+- Why Transthoracic humerus is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
+## Level 18: Osteoporosis
 
-### 5. What the patient says walking in
+Andrea T. Perez, 68. Perform AP.
 
-| | |
-|---|---|
-| Their line | |
+**Please check**
 
-### 6. Structures that must be visible
+- Wrong positions offered: Lateral knee and Oblique knee. The right one is AP knee. Right? Yes / No, use instead:
+- kVp: 65, and anything from 58 to 72 counts as correct. Right? Yes / No, use instead:
+- mAs: 5, and anything from 4.5 to 5.5 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Must be on the film | |
+**Please write**
 
----
+- What the patient says when they walk in:
+- Why Lateral knee is the wrong position:
+- Why Oblique knee is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-## Level 6 — Supracondylar fracture
+## Level 19: Cholelithiasis
 
-*Lower extremity section section*
+Teresa M. Flores, 75. Perform AP Upright.
 
-### What you already gave me
+**Please check**
 
-| | |
-|---|---|
-| Patient | Miguel A. Santos, 9/Male, Hyposthenic |
-| Doctor's order | Left elbow X-ray |
-| Requested projection | Lateral |
-| Correct position | Lateral |
-| Correct kVp | 60 kVp |
-| Correct mAs | 2 mAs |
-| Collimation | Collimate on four sides to area of interest |
+- Wrong positions offered: Lateral abdomen and Oblique abdomen. The right one is AP abdomen. Right? Yes / No, use instead:
+- kVp: 80, and anything from 72 to 88 counts as correct. Right? Yes / No, use instead:
+- mAs: 25, and anything from 22.5 to 27.5 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-Correct this if I have it wrong.
+**Please write**
 
-### 1. Two wrong positions
+- What the patient says when they walk in:
+- Why Lateral abdomen is the wrong position:
+- Why Oblique abdomen is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
+## Level 20: Skull fracture
 
-### 2. How far off can they be?
+Michael R. Aquino, 43. Perform PA.
 
-| | |
-|---|---|
-| Is `60 kVp` a band, or one right answer? | |
-| Is `2 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
+**Please check**
 
-### 3. Collimation size
+- Wrong positions offered: AP skull and Lateral skull. The right one is PA skull. Right? Yes / No, use instead:
+- kVp: 75, and anything from 67 to 83 counts as correct. Right? Yes / No, use instead:
+- mAs: 16, and anything from 14.4 to 17.6 counts as correct. Right? Yes / No, use instead:
+- Collimation: the target box is 60% of the picture's width and 70% of its height. The size in centimetres, if you have it:
 
-| | |
-|---|---|
-| Field size in cm or inches | |
+**Please write**
 
-### 4. What the bad films fail to show
+- What the patient says when they walk in:
+- Why AP skull is the wrong position:
+- Why Lateral skull is the wrong position:
+- A tip on balancing kVp and mAs for this patient:
+- Why a wrong kVp is wrong for this case:
+- Why a wrong mAs is wrong for this case:
+- What the underexposed film fails to show:
+- What the overexposed film fails to show:
+- The structures the film should show:
 
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
+## Questions about the case list
 
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 7 — Tibial stress fracture
-
-*Lower extremity section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | John D. Reyes, 25/Male, Hyposthenic |
-| Doctor's order | Tibia/Fibula X-ray |
-| Requested projection | AP of the affected tibia |
-| Correct position | Tibia-Fibula AP |
-| Correct kVp | 55-65 kVp |
-| Correct mAs | 3-5 *(unit omitted in source)* |
-| Collimation | Collimate on both sides to skin margins |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `55-65 kVp` a band, or one right answer? | |
-| Is `3-5 *(unit omitted in source)*` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 8 — Oblique fibular shaft fracture
-
-*Lower extremity section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Maria L. Santos, 32/Female, Sthenic |
-| Doctor's order | Right Tibia and Fibula X-ray |
-| Requested projection | Lateral views of the right tibia and fibula |
-| Correct position | Tibia-Fibula Lateral |
-| Correct kVp | 60-65 kVp |
-| Correct mAs | 4-6 mAs |
-| Collimation | Collimate on both sides to skin margins |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `60-65 kVp` a band, or one right answer? | |
-| Is `4-6 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 9 — Comminuted tibia-fibula fracture
-
-*Lower extremity section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Roberto M. Garcia, 45/Male, Hypersthenic |
-| Doctor's order | Right Tibia and Fibula X-ray |
-| Requested projection | AP of the right tibia and fibula |
-| Correct position | TIbia-Fibula AP *(client's capitalisation)* |
-| Correct kVp | 65-70 kVp |
-| Correct mAs | 6-8 mAs |
-| Collimation | Collimate on both sides to skin margins |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `65-70 kVp` a band, or one right answer? | |
-| Is `6-8 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 10 — Foreign body ingestion
-
-*Abdomen section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Sofia M. Anderson, 5/Female, Sthenic |
-| Doctor's order | Foreign Body X-ray Series |
-| Requested projection | AP Abdomen |
-| Correct position | AP Abdomen Supine |
-| Correct kVp | 78 kVp |
-| Correct mAs | 25 mAs |
-| Collimation | Collimate on four sides to anatomy of interest |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `78 kVp` a band, or one right answer? | |
-| Is `25 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 11 — Renal calculi
-
-*Abdomen section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | John C. Hopkins, 25/Male, Sthenic |
-| Doctor's order | KUB X-ray |
-| Requested projection | AP |
-| Correct position | KUB AP Supine |
-| Correct kVp | 78 kVp |
-| Correct mAs | 25 mAs |
-| Collimation | Collimate on four sides to anatomy of interest |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `78 kVp` a band, or one right answer? | |
-| Is `25 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 12 — Sigmoid volvulus
-
-*Abdomen section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Antonio R. Mendoza, 65/Male, Hyposthenic |
-| Doctor's order | Abdominal X-ray |
-| Requested projection | AP Supine |
-| Correct position | AP Abdomen Supine |
-| Correct kVp | 75 kVp |
-| Correct mAs | 20 mAs |
-| Collimation | Collimate on four sides to anatomy of interest |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `75 kVp` a band, or one right answer? | |
-| Is `20 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 13 — Mild scalp contusion
-
-*Skull section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Juan D. Cruz, 22/Male, Sthenic |
-| Doctor's order | Skull X-ray |
-| Requested projection | Lateral view of the skull |
-| Correct position | Lateral |
-| Correct kVp | 70-80 kVp |
-| Correct mAs | 20-30 mAs |
-| Collimation | Collimate on four sides to anatomy of interest |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `70-80 kVp` a band, or one right answer? | |
-| Is `20-30 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 14 — Nasal bone fracture
-
-*Skull section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Daniel J. Cruz, 20/Male, Sthenic |
-| Doctor's order | Skull X-ray |
-| Requested projection | Lateral |
-| Correct position | Lateral |
-| Correct kVp | 55-60 kVp |
-| Correct mAs | 3-5 mAs |
-| Collimation | Collimate on four sides to anatomy of interest |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `55-60 kVp` a band, or one right answer? | |
-| Is `3-5 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 15 — Paget's disease
-
-*Refresher section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Elena P. Navarro, 80/Female, Sthenic |
-| Doctor's order | Skull X-ray |
-| Requested projection | AP Skull |
-| Correct position | PA Caldwell |
-| Correct kVp | 70-80 kVp |
-| Correct mAs | 20-30 mAs |
-| Collimation | Collimate on four sides to anatomy of interest |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `70-80 kVp` a band, or one right answer? | |
-| Is `20-30 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 16 — Pulmonary tuberculosis
-
-*Refresher section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Carlos B. Mendoza, 50/Male, Asthenic |
-| Doctor's order | Chest X-ray |
-| Requested projection | PA |
-| Correct position | PA Chest |
-| Correct kVp | 110-120 kVp |
-| Correct mAs | 1-2 mAs |
-| Collimation | Collimate on four sides to area of lung fields |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `110-120 kVp` a band, or one right answer? | |
-| Is `1-2 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 17 — Osteochondroma
-
-*Refresher section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Daniel M. Reyes, 18/Male, Hyposthenic |
-| Doctor's order | Right humerus X-ray |
-| Requested projection | AP |
-| Correct position | AP Humerus |
-| Correct kVp | 60-65 kVp |
-| Correct mAs | 4-6 mAs |
-| Collimation | Collimate on sides to soft tissue borders of humerus and shoulder |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `60-65 kVp` a band, or one right answer? | |
-| Is `4-6 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 18 — Osteoporosis
-
-*Refresher section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Andrea T. Perez, 68/Female, Hypersthenic |
-| Doctor's order | Knee X-ray |
-| Requested projection | AP view of the affected knee |
-| Correct position | AP Knee |
-| Correct kVp | 60-70 kVp |
-| Correct mAs | 3-6 mAs |
-| Collimation | Collimate on both sides to skin margins at ends to IR borders. |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `60-70 kVp` a band, or one right answer? | |
-| Is `3-6 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 19 — Cholelithiasis
-
-*Refresher section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Teresa M. Flores, 75/Female, Hypersthenic |
-| Doctor's order | Abdominal X-ray |
-| Requested projection | AP Erect view |
-| Correct position | AP Abdomen |
-| Correct kVp | 75-85 kVp |
-| Correct mAs | 25-40 mas *(client's lowercase)* |
-| Collimation | Collimate on four sides to anatomy of interest |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `75-85 kVp` a band, or one right answer? | |
-| Is `25-40 mas *(client's lowercase)*` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Level 20 — Skull fracture
-
-*Refresher section*
-
-### What you already gave me
-
-| | |
-|---|---|
-| Patient | Michael R. Aquino, 43/Male, Asthenic |
-| Doctor's order | Skull X-ray |
-| Requested projection | Parietoacanthial |
-| Correct position | Parietoacanthial / Waters method |
-| Correct kVp | 70-80 kVp |
-| Correct mAs | 15-25 mAs |
-| Collimation | Collimate on four sides to anatomy of interest |
-
-Correct this if I have it wrong.
-
-### 1. Two wrong positions
-
-| | Wrong position | Why it is wrong (one sentence the student reads) |
-|---|---|---|
-| A | | |
-| B | | |
-
-### 2. How far off can they be?
-
-| | |
-|---|---|
-| Is `70-80 kVp` a band, or one right answer? | |
-| Is `15-25 mAs` a band, or one right answer? | |
-| Lowest and highest kVp the dial should allow | |
-| Lowest and highest mAs the dial should allow | |
-
-### 3. Collimation size
-
-| | |
-|---|---|
-| Field size in cm or inches | |
-
-### 4. What the bad films fail to show
-
-| | |
-|---|---|
-| If underexposed | |
-| If overexposed | |
-
-### 5. What the patient says walking in
-
-| | |
-|---|---|
-| Their line | |
-
-### 6. Structures that must be visible
-
-| | |
-|---|---|
-| Must be on the film | |
-
----
-
-## Anything else
-
-If something about the game's design is wrong for how you teach, this is the place to say it. It is
-easier to change now than after it is built.
-
-| | |
-|---|---|
-| Notes | |
+- **Level 1** is called "Pulmonary Edema", but its findings describe fluid around both lungs (pleural effusions). Which is it?
+- **Level 12**: the line marked "SS:" reads like a finding ("the sigmoid colon distended and demonstrating the coffee-bean sign"). It currently shows on the doctor's order, where it gives the answer away. Should it move to the findings shown at the end?
+- **Levels 10, 11, 12 and 19** use the same AP abdomen picture, but level 19 is upright and the others are lying down. Do you have an upright picture?
+- **Level 14** is a nasal bone lateral, shown with the whole-skull lateral picture. Is that close enough?
+- **Every level's doctor's order** includes the "Mission" line (for example "Perform PA"), which names the right position. Keep it, or hide it so students have to work out the position themselves?
+- **Positioning pictures**: most still show the collimation light and the "+" mark. Could you send cleaned copies under the same file names? They will drop straight in.
+- **The X-ray films** come from Radiopaedia, with their credit lines kept on each image. Is the game free to use, or will it ever be sold? Radiopaedia images usually allow free, non-commercial use only.

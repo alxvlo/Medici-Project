@@ -4,13 +4,16 @@ A browser-based learning activity in which the student is a radiologic technolog
 
 ## Status — 2026-10-01
 
-**Phase: implementation plan written. No app code yet.**
+**Phase: first playable build. All twenty levels play end to end on the client's art; content gaps show "Awaiting client".**
 
 - Design spec reconciled with the client's `LIST OF CASES.docx` and their art delivery: `docs/superpowers/specs/2026-08-27-medici-radtech-game-design.md` (§13 logs every revision)
 - The client delivered every asset group, all sixty X-ray films included. Their filenames are the asset ids
 - Twenty levels in six sections: chest, upper extremity, lower extremity, abdomen, and skull with three cases each, then a five-case refresher
 - The game will run on placeholder values (spec §5) for what the database lacks: wrong-pose reasons, kVp/mAs tolerances, collimation size, debrief copy, and patient lines. Every level stays `draft` until the client confirms them; open questions are in spec §12
-- Plan: `docs/superpowers/plans/2026-10-01-medici-v1-plan.md` — all twenty levels playable on the real art, shippable to a preview URL for the client
+- Built from `docs/superpowers/plans/2026-10-01-medici-v1-plan.md`. `npm run qa` is the gate; `npm run dev` to play
+- Waiting on the client: `docs/client/level-content-sheet.md` (reissued 2026-10-01 for the twenty cases)
+- Next: Cloudflare Pages preview for the client (needs Vai to connect the GitHub repo)
+- Where the build departs from the spec: `motion` and `prettier` are not installed (CSS keyframes do the tweens); the docked order card and the results debrief scroll inside the stage; `npm run build` runs the unit tests first, so a malformed level fails the build; and each stage ignores input for 300 ms after it appears, so a double-click cannot skip one
 - Engine decided: Vite + React + TypeScript, DOM-first (see spec §2 and `docs/research/`)
 
 See `CHANGELOG.md` for the dated log.
@@ -30,7 +33,7 @@ docs/
   superpowers/plans/          implementation plans (written from a spec, executed task by task)
 ```
 
-The application (`src/`, `tests/`) is scaffolded as the first task of the implementation plan; its layout is defined in the spec §4.6.
+The application is in `src/` and `tests/`; its layout is defined in the spec §4.6.
 
 ## Working on it
 

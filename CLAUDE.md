@@ -12,7 +12,7 @@ Medici — a browser game where the player is a radiologic technologist. Twenty 
 
 ## Current phase
 
-No app code yet. The spec was reconciled with `LIST OF CASES.docx` and the client's art delivery on 2026-10-01 (spec §13). The implementation plan is `docs/superpowers/plans/2026-10-01-medici-v1-plan.md`: all twenty levels playable on the delivered art with placeholder values, shippable to a preview URL. Its first task scaffolds the app; update this file's Commands section then.
+First playable build, 2026-10-01: all twenty levels play end to end on the client's delivered art, with placeholder values (spec §5) and "Awaiting client" where copy is missing. The plan `docs/superpowers/plans/2026-10-01-medici-v1-plan.md` was executed on branch `feat/v1-playable` (not yet pushed or deployed). Waiting on the client's answers via `docs/client/level-content-sheet.md`; until they arrive every level stays `"draft": true`. The spec was reconciled with `LIST OF CASES.docx` and the art delivery the same day (spec §13).
 
 The **2026-09-10 revision is the largest since the spec was written**: the client's case database took the game from five levels to twenty. Read spec §5 for the level table and §13 for what moved. Crucially it changed the *size* of the game, not the shape of its loop — §4.3, §4.4, §4.5, and §6 are untouched. It also extended the §7.1 vocabularies, gave film ids a pathology segment (four levels are PA chest, so region+projection stopped being unique), and took the manifest from 70 files to about 173.
 
