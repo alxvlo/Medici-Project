@@ -15,3 +15,9 @@ body { font-family: system-ui, sans-serif; color: #3a2a22; }
     padding: 24px; text-align: center; font-size: 20px; background: #1b1512; color: #efe6d8;
   }
 }
+
+.placeholder {
+  display: flex; align-items: center; justify-content: center; text-align: center; word-break: break-all;
+  min-width: 40px; min-height: 40px; background: #9a9a9a; color: #222; border: 2px dashed #555;
+  font: 12px/1.2 ui-monospace, monospace;
+}
