@@ -108,19 +108,20 @@ button:active:not(:disabled) {
 
 .title .logo {
   position: absolute;
-  left: 50%;
-  top: 40px;
-  width: 420px;
-  translate: -50% 0;
+  left: 80px;
+  top: 100px;
+  width: 440px;
+  height: 440px;
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 .menu {
   position: absolute;
-  left: 50%;
-  top: 330px;
-  translate: -50% 0;
+  left: 560px;
+  top: 169px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .level-select header {

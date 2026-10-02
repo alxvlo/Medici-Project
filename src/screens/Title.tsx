@@ -13,7 +13,7 @@ export function Title({
   return (
     <div className="screen title">
       <Img id="bg-title" className="bg" />
-      <Img id="logo" className="logo" alt="Radtech Simulator" />
+      <Img id="logo" className="logo" alt="Rad Arcade" />
       <nav className="menu">
         <button
           className="btn"
