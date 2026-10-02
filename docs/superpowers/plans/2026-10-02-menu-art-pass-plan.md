@@ -995,3 +995,16 @@ Executed inline on `feat/menu-art-pass`, five code commits plus this one. Criter
 **Looked at, in screenshots at 1280×800:** title, level select, settings, position stage, wrong-position dialog, results. All read well. Not looked at: mobile landscape, the other stages (technique, collimate, expose), the film-frame stretch (the 880×1080 art is drawn at 400×592, so its border is slightly uneven), and every card with a long title other than the three seen.
 
 **Unchecked:** whether it feels right. Vai plays it. The sizes (menu buttons 300×90, panel 640×460) are my judgment, not measured against anything.
+
+### Final review (2026-10-02) and what changed after it
+
+A fresh reviewer read the whole branch: no Critical findings, four Important. Corrections to the Outcome above:
+
+- **Fail-first wording.** For the film-frame, wrong-position-fits, and long-copy checks, the first failure recorded is "art not found", which proves only that the code was not there yet. Their geometry assertions (film inside the frame's opening, Continue inside the panel after a scroll) were never seen failing for a geometric reason. They are not vacuous, but treat them as implemented, not independently verified.
+- **Stretched plates, fixed.** The Results buttons (150×56) and the popup panel (640×460) were drawn at the wrong proportions for their art (btn-large 480×144; popup-panel 1120×720), which `object-fit: fill` hides as a smudge. New check "keep their art's proportions" failed first with 0.196 (Results button) and 0.106 (panel) off; now the buttons are 150×45 and the panel is 720 wide at the art's ratio (about 720×463). The film frame is still stretched about 20% (880×1080 art drawn at 400×592); left for Vai to judge.
+- **Focus ring clipped, fixed.** A focused Continue scrolled to the end of long copy lost the bottom of its ring to the panel body's clip edge. New check failed first (ring bottom 660 against a limit of 653 on desktop), fixed with 8 px of bottom padding on `.panel-body`.
+- **Test fixes after the first run** (assertions' meaning unchanged): the proportion helper waits for the image to decode (first read was NaN); the ring is scaled by the stage scale, since it is 6 stage pixels.
+
+Deferred minors: `inside(panel, stage)` in two checks can never fail (the panel is smaller than the stage); the 10 px label lift is fixed, not proportional to each button's plate; commit 31cf40c is typed `docs:` but carries one CSS line; the new `Button`/`Panel` imports sit above the `react` import in eight files; the settings dialog is not a focus trap and pose buttons behind the wrong-position dialog stay focusable (both predate this branch).
+
+Final gate after the fixes: `npm run qa` green, 70 unit and 102 e2e passed, 4 skipped as before.

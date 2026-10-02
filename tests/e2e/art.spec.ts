@@ -265,3 +265,82 @@ test("the countdown ring is drawn on the timer-ring art and still reads the seco
   await expect(timer).toHaveAttribute("aria-label", /^\d+ seconds left$/);
   await expect(timer).toContainText(/\d+/);
 });
+
+// A plate stretched by object-fit: fill reads as a smudge. Every art-backed element keeps its PNG's proportions.
+const plateRatioError = (plate: Locator) =>
+  plate.evaluate(async (img: HTMLImageElement) => {
+    await img.decode();
+    const r = img.getBoundingClientRect();
+    return Math.abs(
+      r.width / r.height / (img.naturalWidth / img.naturalHeight) - 1,
+    );
+  });
+
+test("the title, settings, and results buttons and the popup panel keep their art's proportions", async ({
+  page,
+}) => {
+  await seedSave(page);
+  await page.goto("/");
+  await expect(
+    await plateRatioError(
+      page
+        .getByRole("button", { name: "Start" })
+        .locator('[data-asset="btn-large"]'),
+    ),
+    "title button plate",
+  ).toBeLessThan(0.03);
+  await page.getByRole("button", { name: "Settings" }).click();
+  const dialog = page.getByRole("dialog", { name: "Settings" });
+  expect(
+    await plateRatioError(dialog.locator('[data-asset="popup-panel"]')),
+    "popup panel",
+  ).toBeLessThan(0.03);
+  expect(
+    await plateRatioError(
+      dialog
+        .getByRole("button", { name: "Close" })
+        .locator('[data-asset="btn-small"]'),
+    ),
+    "settings button plate",
+  ).toBeLessThan(0.03);
+});
+
+test("the results buttons keep the large button's proportions and still fit their row", async ({
+  page,
+}) => {
+  await startLevel(page, 1);
+  await playL1(page);
+  const next = page.getByRole("button", { name: "Next case" });
+  expect(
+    await plateRatioError(next.locator('[data-asset="btn-large"]')),
+    "results button plate",
+  ).toBeLessThan(0.03);
+  const stage = await box(page.locator(".stage"));
+  const last = await box(page.getByRole("button", { name: "Level select" }));
+  expect(inside(last, stage)).toBe(true);
+});
+
+test("a focused Continue scrolled to the end of long copy keeps its whole focus ring inside the panel body", async ({
+  page,
+}) => {
+  const dialog = await wrongPositionDialog(page);
+  await dialog
+    .locator("p")
+    .first()
+    .evaluate((el) => {
+      el.textContent = "A long explanation of the error. ".repeat(40);
+    });
+  const cont = dialog.getByRole("button", { name: "Continue" });
+  await page.keyboard.press("Tab");
+  await cont.focus();
+  await cont.scrollIntoViewIfNeeded();
+  const [b, body] = await Promise.all([
+    box(cont),
+    box(dialog.locator(".panel-body")),
+  ]);
+  // the ring is a 3 px outline offset by 3 px, in stage pixels: scale it to the screen
+  const ring = (6 * (await box(page.locator(".stage"))).width) / 960;
+  expect(b.y + b.height + ring, "ring bottom is clipped").toBeLessThanOrEqual(
+    body.y + body.height + 0.5,
+  );
+});
