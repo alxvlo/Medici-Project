@@ -1,45 +1,73 @@
-import { useEffect, useReducer, type MouseEvent } from 'react'
-import { Stage } from './Stage'
-import { reducer, type State } from './store'
-import { loadSave, writeSave } from './save'
-import { play, setSound, startAmbience } from '../audio'
-import { Title } from '../screens/Title'
-import { LevelSelect } from '../screens/LevelSelect'
-import { Settings } from '../screens/Settings'
-import { levelById } from '../data/levels'
-import { mistakes, stars } from '../game/rules'
-import { Level } from '../stages/Level'
-import { Results } from '../screens/Results'
+import { useEffect, useReducer, type MouseEvent } from "react";
+import { AnimatePresence } from "motion/react";
+import { Fade } from "../ui/Fade";
+import { Stage } from "./Stage";
+import { reducer, type State } from "./store";
+import { loadSave, writeSave } from "./save";
+import { play, setSound, startAmbience } from "../audio";
+import { Title } from "../screens/Title";
+import { LevelSelect } from "../screens/LevelSelect";
+import { Settings } from "../screens/Settings";
+import { levelById } from "../data/levels";
+import { mistakes, stars } from "../game/rules";
+import { Level } from "../stages/Level";
+import { Results } from "../screens/Results";
 
-const init = (): State => ({ screen: { name: 'title' }, save: loadSave(), settingsOpen: false })
+const init = (): State => ({
+  screen: { name: "title" },
+  save: loadSave(),
+  settingsOpen: false,
+});
 
 export function App() {
-  const [state, dispatch] = useReducer(reducer, undefined, init)
-  const { screen, save } = state
-  useEffect(() => writeSave(save), [save])
-  useEffect(() => setSound(save.settings.sound), [save.settings.sound])
+  const [state, dispatch] = useReducer(reducer, undefined, init);
+  const { screen, save } = state;
+  useEffect(() => writeSave(save), [save]);
+  useEffect(() => setSound(save.settings.sound), [save.settings.sound]);
 
   const onClickCapture = (e: MouseEvent) => {
-    if ((e.target as HTMLElement).closest('button')) play('sfx-click')
-    startAmbience()
-  }
+    if ((e.target as HTMLElement).closest("button")) play("sfx-click");
+    startAmbience();
+  };
+
+  const key = "id" in screen ? `${screen.name}-${screen.id}` : screen.name;
 
   return (
     <Stage>
       <div className="app" onClickCapture={onClickCapture}>
-        {screen.name === 'title' && <Title save={save} dispatch={dispatch} />}
-        {screen.name === 'levelSelect' && <LevelSelect save={save} dispatch={dispatch} />}
-        {screen.name === 'level' && (
-          <Level key={screen.id} level={levelById(screen.id)}
-            onFinish={(result) => dispatch({
-              type: 'finish', id: screen.id, result, stars: stars(mistakes(result, levelById(screen.id))),
-            })} />
-        )}
-        {screen.name === 'results' && (
-          <Results level={levelById(screen.id)} result={screen.result} dispatch={dispatch} />
-        )}
+        <AnimatePresence>
+          <Fade key={key}>
+            {screen.name === "title" && (
+              <Title save={save} dispatch={dispatch} />
+            )}
+            {screen.name === "levelSelect" && (
+              <LevelSelect save={save} dispatch={dispatch} />
+            )}
+            {screen.name === "level" && (
+              <Level
+                key={screen.id}
+                level={levelById(screen.id)}
+                onFinish={(result) =>
+                  dispatch({
+                    type: "finish",
+                    id: screen.id,
+                    result,
+                    stars: stars(mistakes(result, levelById(screen.id))),
+                  })
+                }
+              />
+            )}
+            {screen.name === "results" && (
+              <Results
+                level={levelById(screen.id)}
+                result={screen.result}
+                dispatch={dispatch}
+              />
+            )}
+          </Fade>
+        </AnimatePresence>
         {state.settingsOpen && <Settings save={save} dispatch={dispatch} />}
       </div>
     </Stage>
-  )
+  );
 }

@@ -2,7 +2,23 @@
 
 Dated project log, newest first. Code changes follow Conventional Commits in git; this file records decisions, deliverables, and milestones.
 
+## 2026-10-02
+
+Menu and art pass (plan: `docs/superpowers/plans/2026-10-02-menu-art-pass-plan.md`). The title is now a logo
+poster with the menu beside it instead of overlapping it. The delivered button, level-card, popup-panel,
+film-frame, timer-ring, and sound-icon art is used where plain CSS boxes stood in for it; the level-select
+header is now light so its dark icons can be seen. Still unused on purpose: `indicator-off`, `indicator-red`
+(no lamps in the spec), `radtech-portrait`, `patient-teen-girl`, `pose-chest-oblique`, `pose-skull-smv` (no
+level references them). The tab title and the logo's alt text now say "Rad Arcade", as the logo does; the
+project documents still say "Radtech Simulator".
+
 ## 2026-10-01
+
+Added prettier and motion, both at Vai's go-ahead (plan: docs/superpowers/plans/2026-10-01-motion-polish-plan.md). Screens
+and stages now cross-fade, the results film develops and then the debrief and stars appear, and .btn presses
+scale slightly. The wrong-answer shake and the intake slide stay CSS. motion costs +41.9 kB gzip on the client
+bundle. A first version that waited for each exit broke the 300 ms input guard, so the transition is a cross-fade.
+
 
 Spec reconciled with `LIST OF CASES.docx` and the client's 2026-09-28 art delivery, then the first
 implementation plan written (`docs/superpowers/plans/2026-10-01-medici-v1-plan.md`). Decisions, all
