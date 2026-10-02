@@ -1,3 +1,4 @@
+import { Button } from "../ui/Button";
 import { useState } from "react";
 import type { Level } from "../data/schema";
 import { checkCollimation } from "../game/rules";
@@ -68,9 +69,9 @@ export function Collimate({
           unit="%"
         />
       </div>
-      <button className="btn next" onClick={check}>
+      <Button className="next" onClick={check}>
         Set collimation
-      </button>
+      </Button>
     </div>
   );
 }

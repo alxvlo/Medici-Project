@@ -1,3 +1,4 @@
+import { Button } from "../ui/Button";
 import type { Dispatch } from "react";
 import type { Action } from "../app/store";
 import type { Save } from "../app/save";
@@ -15,8 +16,7 @@ export function Title({
       <Img id="bg-title" className="bg" />
       <Img id="logo" className="logo" alt="Rad Arcade" />
       <nav className="menu">
-        <button
-          className="btn"
+        <Button
           onClick={() =>
             dispatch({
               type: "go",
@@ -25,21 +25,17 @@ export function Title({
           }
         >
           Start
-        </button>
-        <button
-          className="btn"
+        </Button>
+        <Button
           onClick={() =>
             dispatch({ type: "go", screen: { name: "levelSelect" } })
           }
         >
           Select Level
-        </button>
-        <button
-          className="btn"
-          onClick={() => dispatch({ type: "openSettings" })}
-        >
+        </Button>
+        <Button onClick={() => dispatch({ type: "openSettings" })}>
           Settings
-        </button>
+        </Button>
       </nav>
     </div>
   );

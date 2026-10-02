@@ -1,3 +1,4 @@
+import { Button } from "../ui/Button";
 import { useRef, useState } from "react";
 import type { Level } from "../data/schema";
 import { play } from "../audio";
@@ -109,9 +110,9 @@ export function Position({
             )}
             <p>The correct position is {correct.label}.</p>
             <Img id={correct.image} className="correct-pose" />
-            <button className="btn" onClick={() => onComplete(wrong.pose)}>
+            <Button small onClick={() => onComplete(wrong.pose)}>
               Continue
-            </button>
+            </Button>
           </div>
         </div>
       )}

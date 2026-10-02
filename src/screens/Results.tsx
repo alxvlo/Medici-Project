@@ -1,3 +1,4 @@
+import { Button } from "../ui/Button";
 import type { Dispatch } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import type { Action } from "../app/store";
@@ -173,21 +174,16 @@ export function Results({
       </motion.div>
       <div className="actions">
         {level.id < 20 && (
-          <button className="btn" onClick={() => go(level.id + 1)}>
-            Next case
-          </button>
+          <Button onClick={() => go(level.id + 1)}>Next case</Button>
         )}
-        <button className="btn" onClick={() => go(level.id)}>
-          Repeat case
-        </button>
-        <button
-          className="btn"
+        <Button onClick={() => go(level.id)}>Repeat case</Button>
+        <Button
           onClick={() =>
             dispatch({ type: "go", screen: { name: "levelSelect" } })
           }
         >
           Level select
-        </button>
+        </Button>
       </div>
     </div>
   );

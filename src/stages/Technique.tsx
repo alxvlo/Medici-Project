@@ -1,3 +1,4 @@
+import { Button } from "../ui/Button";
 import { useRef, useState } from "react";
 import type { Level } from "../data/schema";
 import { checkTechnique } from "../game/rules";
@@ -66,9 +67,9 @@ export function Technique({
           wrong={wrong.mas}
         />
       </div>
-      <button className="btn next" onClick={submit} disabled={submitted}>
+      <Button className="next" onClick={submit} disabled={submitted}>
         Confirm
-      </button>
+      </Button>
     </div>
   );
 }

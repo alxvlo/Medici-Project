@@ -1,3 +1,4 @@
+import { Button } from "../ui/Button";
 import { useState, type Dispatch } from "react";
 import type { Action } from "../app/store";
 import type { Save } from "../app/save";
@@ -26,30 +27,32 @@ export function Settings({
         {confirming ? (
           <div className="row">
             Erase all progress?
-            <button
-              className="btn"
+            <Button
+              small
+
               onClick={() => {
                 dispatch({ type: "resetProgress" });
                 setConfirming(false);
               }}
             >
               Yes, reset
-            </button>
-            <button className="btn" onClick={() => setConfirming(false)}>
+            </Button>
+            <Button small onClick={() => setConfirming(false)}>
               Cancel
-            </button>
+            </Button>
           </div>
         ) : (
-          <button className="btn" onClick={() => setConfirming(true)}>
+          <Button small onClick={() => setConfirming(true)}>
             Reset progress
-          </button>
+          </Button>
         )}
-        <button
-          className="btn"
+        <Button
+          small
+
           onClick={() => dispatch({ type: "closeSettings" })}
         >
           Close
-        </button>
+        </Button>
       </div>
     </div>
   );

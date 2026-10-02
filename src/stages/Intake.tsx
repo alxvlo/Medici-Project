@@ -1,3 +1,4 @@
+import { Button } from "../ui/Button";
 import type { Level } from "../data/schema";
 import { Copy } from "../ui/Copy";
 import { Img } from "../ui/Img";
@@ -23,9 +24,9 @@ export function Intake({
           <Copy text={level.patient.line} />
         </p>
       </div>
-      <button className="btn next" onClick={onComplete}>
+      <Button className="next" onClick={onComplete}>
         Continue
-      </button>
+      </Button>
     </div>
   );
 }

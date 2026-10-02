@@ -87,14 +87,49 @@ button {
   color: inherit;
 }
 .btn {
-  min-width: 200px;
-  padding: 12px 20px;
-  border: 3px solid #3a2a22;
-  border-radius: 10px;
-  background: #f5d9a8;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: 240px;
+  height: 72px;
+  padding: 0;
+  border: 0;
+  background: none;
   color: #3a2a22;
   font-size: 20px;
   font-weight: 700;
+}
+.btn.small {
+  width: 160px;
+  height: 64px;
+  font-size: 18px;
+}
+.menu .btn {
+  width: 300px;
+  height: 90px;
+  font-size: 26px;
+}
+.btn .art.hover,
+.btn .art.pressed {
+  opacity: 0;
+}
+.btn:hover:not(:disabled) {
+  filter: none;
+}
+.btn:hover:not(:disabled) .art.hover {
+  opacity: 1;
+}
+.btn:active:not(:disabled) .art.pressed {
+  opacity: 1;
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn:focus-visible {
+  outline: 3px solid #3a2a22;
+  outline-offset: 3px;
 }
 .btn:active:not(:disabled) {
   scale: 0.97;
@@ -661,6 +696,7 @@ button:active:not(:disabled) {
   gap: 10px;
 }
 .results .actions .btn {
-  min-width: 0;
+  width: 150px;
+  height: 56px;
   font-size: 16px;
 }
