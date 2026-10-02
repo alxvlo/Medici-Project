@@ -971,3 +971,27 @@ git commit -m "docs: record the menu and art pass"
 - **Type consistency.** `Button` takes `small?: boolean` and is used with `small` only in Tasks 2 and 4; `Panel` takes `title` and `children`; the test helpers `box`, `inside`, `overlaps` are defined once in Task 1 and reused; art ids match the filenames measured on disk.
 - **Review Focus.** Cards: Task 3 loop over all 20. Long copy: Task 4 stress test. Keyboard: Task 2 guard. Both viewports: every geometry check runs in both Playwright projects. Locked cards: Task 3 guard.
 - **Known guards (cannot fail first):** the keyboard test and the locked-card test. They are labelled in the spec file.
+
+---
+
+## Outcome (2026-10-02)
+
+Executed inline on `feat/menu-art-pass`, five code commits plus this one. Criteria and results, separately.
+
+**Checks that failed first, with the message seen** (desktop project):
+
+- Task 1, overlap: `Error: Start overlaps the logo` (expected false, received true). Naming: `Expected: "Rad Arcade", Received: "Radtech Simulator"`.
+- Task 2, button art: `element(s) not found` waiting for `[data-asset="btn-large"]` inside the Start button.
+- Task 3, cards: `card 1 has no card art` (expected 1, received 0). Header: `header background is see-through`, expected 1, received 0.88.
+- Task 4: the Settings panel, the wrong-position panel and the long-copy test failed on `[data-asset="popup-panel"]` not found.
+- Task 5: film frame and timer ring both failed on their art not being found.
+
+**Guards (passed before the change, by design):** the keyboard and focus-ring test and the locked-card test, as the plan said. One more, not predicted: "settings buttons use the small button art" already passed at Task 4, because Task 2 had already put `Button small` in Settings. It proves nothing new about Task 4.
+
+**Final counts:** `npm run qa` green: typecheck, lint, 70 unit, 96 e2e passed, 4 skipped as before (both viewports). `npm run build` succeeds; client JS 495.05 kB (149.52 kB gzip) against 494.43 kB (149.32 kB) before: +0.6 kB, because the art is image files, not code.
+
+**Deviations from the plan, each ruled in the ledger:** the geometry tests locate the stage as `.stage` (the plan's `.app` does not exist); `.results .actions .btn` is 150×56 so three buttons fit the 492 px row (the plan's 240 px buttons would overflow it); `.correct-pose` is resized to 130×130 in place instead of adding `max-height` to the old 220×220 rule; the button label is lifted 10 px (`padding: 0 0 10px`) after a screenshot showed it resting on the plate's dark lip.
+
+**Looked at, in screenshots at 1280×800:** title, level select, settings, position stage, wrong-position dialog, results. All read well. Not looked at: mobile landscape, the other stages (technique, collimate, expose), the film-frame stretch (the 880×1080 art is drawn at 400×592, so its border is slightly uneven), and every card with a long title other than the three seen.
+
+**Unchecked:** whether it feels right. Vai plays it. The sizes (menu buttons 300×90, panel 640×460) are my judgment, not measured against anything.

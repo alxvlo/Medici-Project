@@ -93,7 +93,7 @@ button {
   place-items: center;
   width: 240px;
   height: 72px;
-  padding: 0;
+  padding: 0 0 10px;
   border: 0;
   background: none;
   color: #3a2a22;
