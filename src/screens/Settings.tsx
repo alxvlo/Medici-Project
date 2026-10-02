@@ -1,4 +1,6 @@
 import { Button } from "../ui/Button";
+import { Img } from "../ui/Img";
+import { Panel } from "../ui/Panel";
 import { useState, type Dispatch } from "react";
 import type { Action } from "../app/store";
 import type { Save } from "../app/save";
@@ -14,13 +16,16 @@ export function Settings({
   const [confirming, setConfirming] = useState(false);
   return (
     <div className="overlay" role="dialog" aria-label="Settings">
-      <div className="panel">
-        <h2>Settings</h2>
+      <Panel title="Settings">
         <label className="row">
           <input
             type="checkbox"
             checked={save.settings.sound}
             onChange={() => dispatch({ type: "toggleSound" })}
+          />
+          <Img
+            id={save.settings.sound ? "icon-sound-on" : "icon-sound-off"}
+            className="sound-icon"
           />
           Sound
         </label>
@@ -53,7 +58,7 @@ export function Settings({
         >
           Close
         </Button>
-      </div>
+      </Panel>
     </div>
   );
 }

@@ -277,17 +277,37 @@ button:active:not(:disabled) {
   background: rgba(0, 0, 0, 0.55);
 }
 .panel {
-  min-width: 420px;
-  max-width: 640px;
-  padding: 24px;
+  position: relative;
+  isolation: isolate;
+  width: 640px;
+  height: 460px;
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  padding: 0 36px 28px;
+  box-sizing: border-box;
+  color: #3a2a22;
+}
+.panel h2 {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+.panel-body {
   display: flex;
   flex-direction: column;
-  gap: 14px;
   align-items: center;
+  gap: 14px;
+  padding-top: 12px;
   text-align: center;
-  border: 3px solid #3a2a22;
-  border-radius: 14px;
-  background: #f3e7d3;
+  overflow-y: auto;
+  min-height: 0;
+}
+.panel .sound-icon {
+  width: 32px;
+  height: 32px;
+  min-width: 0;
+  min-height: 0;
 }
 .panel .row {
   display: flex;
@@ -479,8 +499,8 @@ button:active:not(:disabled) {
   object-fit: contain;
 }
 .correct-pose {
-  width: 220px;
-  height: 220px;
+  width: 130px;
+  height: 130px;
   object-fit: cover;
   border-radius: 10px;
 }

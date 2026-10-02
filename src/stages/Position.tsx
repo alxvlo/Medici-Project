@@ -1,4 +1,5 @@
 import { Button } from "../ui/Button";
+import { Panel } from "../ui/Panel";
 import { useRef, useState } from "react";
 import type { Level } from "../data/schema";
 import { play } from "../audio";
@@ -97,12 +98,13 @@ export function Position({
       )}
       {wrong && explain && (
         <div className="overlay" role="dialog" aria-label="Wrong position">
-          <div className="panel">
-            <h2>
-              {chosen
+          <Panel
+            title={
+              chosen
                 ? `${chosen.label} is not the right position`
-                : "Time's up: no position was chosen"}
-            </h2>
+                : "Time's up: no position was chosen"
+            }
+          >
             {chosen && (
               <p>
                 <Copy text={chosen.why} />
@@ -113,7 +115,7 @@ export function Position({
             <Button small onClick={() => onComplete(wrong.pose)}>
               Continue
             </Button>
-          </div>
+          </Panel>
         </div>
       )}
     </div>

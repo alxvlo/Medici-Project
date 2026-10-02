@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { Locator } from "@playwright/test";
-import { seedSave } from "./helpers";
+import { seedSave, startLevel, throughOrder, poseButton } from "./helpers";
 
 type Box = { x: number; y: number; width: number; height: number };
 
@@ -155,4 +155,76 @@ test("a locked card stays disabled and shows the lock", async ({ page }) => {
   await expect(locked).toBeDisabled();
   await expect(locked.locator('[data-asset="icon-lock"]')).toBeVisible();
   await expect(page.getByRole("button", { name: /^Level 1:/ })).toBeEnabled();
+});
+
+test("settings is drawn on the popup panel, with a speaker icon that follows the sound toggle", async ({
+  page,
+}) => {
+  await seedSave(page); // sound is off in the seeded save
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  const dialog = page.getByRole("dialog", { name: "Settings" });
+  await expect(dialog.locator('[data-asset="popup-panel"]')).toBeVisible();
+  await expect(dialog.locator('[data-asset="icon-sound-off"]')).toBeVisible();
+  await expect(dialog.locator('[data-asset="icon-sound-on"]')).toHaveCount(0);
+  await dialog.getByRole("checkbox", { name: "Sound" }).check();
+  await expect(dialog.locator('[data-asset="icon-sound-on"]')).toBeVisible();
+  await expect(dialog.locator('[data-asset="icon-sound-off"]')).toHaveCount(0);
+});
+
+test("settings buttons use the small button art and its hover plate", async ({
+  page,
+}) => {
+  await seedSave(page);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  const close = page
+    .getByRole("dialog", { name: "Settings" })
+    .getByRole("button", { name: "Close" });
+  await expect(close.locator('[data-asset="btn-small"]')).toBeVisible();
+  await close.hover();
+  await expect(close.locator('[data-asset="btn-small-hover"]')).toHaveCSS(
+    "opacity",
+    "1",
+  );
+});
+
+async function wrongPositionDialog(page: import("@playwright/test").Page) {
+  await startLevel(page, 1);
+  await throughOrder(page);
+  await poseButton(page, "pose-chest-ap").click(); // level 1 is a PA chest, so this is wrong
+  const dialog = page.getByRole("dialog", { name: "Wrong position" });
+  await expect(dialog).toBeVisible();
+  return dialog;
+}
+
+test("the wrong-position dialog sits on the popup panel and fits inside it and the stage", async ({
+  page,
+}) => {
+  const dialog = await wrongPositionDialog(page);
+  const panel = await box(dialog.locator('[data-asset="popup-panel"]'));
+  expect(inside(panel, await box(page.locator(".stage")))).toBe(true);
+  for (const part of [
+    dialog.getByRole("button", { name: "Continue" }),
+    dialog.locator('[data-asset="pose-chest-pa"]'),
+  ])
+    expect(inside(await box(part), panel)).toBe(true);
+});
+
+// The client will supply real "why this is wrong" sentences, much longer than the placeholder.
+test("long explanatory copy scrolls inside the panel instead of overflowing it", async ({
+  page,
+}) => {
+  const dialog = await wrongPositionDialog(page);
+  await dialog
+    .locator("p")
+    .first()
+    .evaluate((el) => {
+      el.textContent = "A long explanation of the error. ".repeat(40);
+    });
+  const panel = await box(dialog.locator('[data-asset="popup-panel"]'));
+  expect(inside(panel, await box(page.locator(".stage")))).toBe(true);
+  const cont = dialog.getByRole("button", { name: "Continue" });
+  await cont.scrollIntoViewIfNeeded();
+  expect(inside(await box(cont), panel)).toBe(true);
 });
