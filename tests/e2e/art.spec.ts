@@ -1,6 +1,12 @@
 import { test, expect } from "@playwright/test";
 import type { Locator } from "@playwright/test";
-import { seedSave, startLevel, throughOrder, poseButton } from "./helpers";
+import {
+  seedSave,
+  startLevel,
+  throughOrder,
+  poseButton,
+  playL1,
+} from "./helpers";
 
 type Box = { x: number; y: number; width: number; height: number };
 
@@ -227,4 +233,35 @@ test("long explanatory copy scrolls inside the panel instead of overflowing it",
   const cont = dialog.getByRole("button", { name: "Continue" });
   await cont.scrollIntoViewIfNeeded();
   expect(inside(await box(cont), panel)).toBe(true);
+});
+
+test("the results film sits inside the film frame's opening", async ({
+  page,
+}) => {
+  await startLevel(page, 1);
+  await playL1(page);
+  const frame = await box(page.locator('[data-asset="film-frame"]'));
+  const film = await box(page.locator('[data-asset^="xray-"]'));
+  // The frame art's solid border is 60 px of 880 wide and 60 px of 1080 high (measured from the PNG).
+  const mx = (frame.width * 60) / 880;
+  const my = (frame.height * 60) / 1080;
+  expect(film.x).toBeGreaterThanOrEqual(frame.x + mx - 2);
+  expect(film.y).toBeGreaterThanOrEqual(frame.y + my - 2);
+  expect(film.x + film.width).toBeLessThanOrEqual(
+    frame.x + frame.width - mx + 2,
+  );
+  expect(film.y + film.height).toBeLessThanOrEqual(
+    frame.y + frame.height - my + 2,
+  );
+});
+
+test("the countdown ring is drawn on the timer-ring art and still reads the seconds", async ({
+  page,
+}) => {
+  await startLevel(page, 1);
+  await throughOrder(page);
+  const timer = page.getByRole("timer");
+  await expect(timer.locator('[data-asset="timer-ring"]')).toBeVisible();
+  await expect(timer).toHaveAttribute("aria-label", /^\d+ seconds left$/);
+  await expect(timer).toContainText(/\d+/);
 });

@@ -78,18 +78,21 @@ export function Results({
   return (
     <div className="screen results">
       <Img id="bg-viewer" className="bg" />
-      <motion.div
-        className="lightbox"
-        initial={{ opacity: 0, filter: "brightness(3)" }}
-        animate={{ opacity: 1, filter: "brightness(1)" }}
-        transition={{ duration: secs(1.2), ease: "easeOut" }}
-      >
-        <Img
-          id={filmId(level.films.slug, film)}
-          className="film"
-          alt={`${FILM_LABEL[film]} radiograph`}
-        />
-      </motion.div>
+      <div className="lightbox">
+        <Img id="film-frame" className="art" />
+        <motion.div
+          className="filmbox"
+          initial={{ opacity: 0, filter: "brightness(3)" }}
+          animate={{ opacity: 1, filter: "brightness(1)" }}
+          transition={{ duration: secs(1.2), ease: "easeOut" }}
+        >
+          <Img
+            id={filmId(level.films.slug, film)}
+            className="film"
+            alt={`${FILM_LABEL[film]} radiograph`}
+          />
+        </motion.div>
+      </div>
       <motion.div
         className="debrief"
         initial={{ opacity: 0 }}

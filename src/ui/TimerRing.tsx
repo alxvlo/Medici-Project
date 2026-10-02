@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { Img } from "./Img";
 
 /**
  * Counts down from `seconds` while `running` and calls `onExpire` once at zero. It polls a fixed deadline
@@ -39,7 +40,8 @@ export function TimerRing({ left, total }: { left: number; total: number }) {
       aria-label={`${left} seconds left`}
       style={{ "--p": left / total } as CSSProperties}
     >
-      <span>{left}</span>
+      <Img id="timer-ring" className="ring" />
+      <span className="face">{left}</span>
     </div>
   );
 }
