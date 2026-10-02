@@ -80,3 +80,79 @@ test("the title buttons work from the keyboard and show a focus ring", async ({
   await page.keyboard.press("Enter");
   await expect(page.getByRole("button", { name: "Continue" })).toBeVisible();
 });
+
+const rgb = (css: string) => css.match(/[\d.]+/g)!.map(Number);
+const channel = (c: number) => {
+  const v = c / 255;
+  return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+};
+const luminance = ([r, g, b]: number[]) =>
+  0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+const contrast = (a: number[], b: number[]) => {
+  const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+};
+// The dark brown of icon-back.png and icon-settings.png, measured from the delivered files.
+const ICON_BROWN = [91, 66, 47];
+
+test("all twenty level cards are drawn on the card art at its proportions, with every child inside", async ({
+  page,
+}) => {
+  await seedSave(page, { unlocked: 20 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Select Level" }).click();
+  const cards = page.locator("button[aria-label^='Level ']");
+  await expect(cards).toHaveCount(20);
+  for (let i = 0; i < 20; i++) {
+    const card = cards.nth(i);
+    await expect(
+      card.locator('[data-asset="level-card"]'),
+      `card ${i + 1} has no card art`,
+    ).toHaveCount(1);
+    const b = await box(card);
+    expect(b.width / b.height, `card ${i + 1} proportions`).toBeCloseTo(
+      320 / 440,
+      1,
+    );
+    const stray = await card.evaluate((el) => {
+      const r = el.getBoundingClientRect();
+      return [...el.querySelectorAll("*")].filter((c) => {
+        const q = c.getBoundingClientRect();
+        return (
+          q.width > 0 &&
+          (q.left < r.left - 1 ||
+            q.right > r.right + 1 ||
+            q.top < r.top - 1 ||
+            q.bottom > r.bottom + 1)
+        );
+      }).length;
+    });
+    expect(stray, `card ${i + 1} has children outside it`).toBe(0);
+  }
+});
+
+test("the level-select header is opaque and light enough to show the dark back and settings icons", async ({
+  page,
+}) => {
+  await seedSave(page);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Select Level" }).click();
+  const bg = rgb(
+    await page
+      .locator(".level-select header")
+      .evaluate((el) => getComputedStyle(el).backgroundColor),
+  );
+  expect(bg[3] ?? 1, "header background is see-through").toBe(1);
+  expect(contrast(bg.slice(0, 3), ICON_BROWN)).toBeGreaterThanOrEqual(4.5);
+});
+
+// Guard: passes before and after. A restyled locked card must stay disabled and keep its lock.
+test("a locked card stays disabled and shows the lock", async ({ page }) => {
+  await seedSave(page);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Select Level" }).click();
+  const locked = page.getByRole("button", { name: /^Level 2:/ });
+  await expect(locked).toBeDisabled();
+  await expect(locked.locator('[data-asset="icon-lock"]')).toBeVisible();
+  await expect(page.getByRole("button", { name: /^Level 1:/ })).toBeEnabled();
+});

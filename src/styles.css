@@ -168,8 +168,9 @@ button:active:not(:disabled) {
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  background: rgba(58, 42, 34, 0.88);
-  color: #efe6d8;
+  background: #f3e7d3;
+  color: #3a2a22;
+  border-bottom: 3px solid #3a2a22;
 }
 .level-select h1 {
   font-size: 24px;
@@ -211,15 +212,17 @@ button:active:not(:disabled) {
   gap: 12px;
 }
 .card {
-  height: 132px;
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 320 / 440;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 20% 1fr 16%;
+  justify-items: center;
   align-items: center;
-  justify-content: space-between;
-  border: 3px solid #3a2a22;
-  border-radius: 10px;
-  background: #f3e7d3;
+  border: 0;
+  background: none;
+  color: #3a2a22;
 }
 .card:disabled {
   opacity: 0.55;
@@ -229,13 +232,23 @@ button:active:not(:disabled) {
   font-size: 22px;
   font-weight: 800;
 }
-.card .name {
-  font-size: 13px;
-  font-weight: 700;
+.card .body {
+  display: grid;
+  gap: 4px;
+  padding: 0 10px;
   text-align: center;
+}
+.card .name {
+  font-size: 14px;
+  font-weight: 700;
 }
 .card .exam {
   font-size: 11px;
+}
+.card .foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .card .lock {
   width: 24px;

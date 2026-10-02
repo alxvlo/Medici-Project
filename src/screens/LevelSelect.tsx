@@ -73,14 +73,19 @@ export function LevelSelect({
                           })
                         }
                       >
+                        <Img id="level-card" className="art" />
                         <span className="num">{l.id}</span>
-                        <span className="name">{l.title}</span>
-                        <span className="exam">{l.order.exam}</span>
-                        {locked ? (
-                          <Img id="icon-lock" className="lock" />
-                        ) : (
-                          <Stars n={save.stars[l.id] ?? 0} />
-                        )}
+                        <span className="body">
+                          <span className="name">{l.title}</span>
+                          <span className="exam">{l.order.exam}</span>
+                        </span>
+                        <span className="foot">
+                          {locked ? (
+                            <Img id="icon-lock" className="lock" />
+                          ) : (
+                            <Stars n={save.stars[l.id] ?? 0} />
+                          )}
+                        </span>
                       </button>
                     );
                   })}
